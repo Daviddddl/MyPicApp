@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -14,16 +15,24 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.kevin.crop.UCrop;
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.CropActivity;
+import com.kevin.imageuploadclient.util.Constant;
+import com.kevin.imageuploadclient.util.FileUtils;
 import com.kevin.imageuploadclient.view.SelectPicturePopupWindow;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public abstract class PictureSelectFragment extends BaseFragment implements SelectPicturePopupWindow.OnSelectedListener {
 
@@ -43,11 +52,28 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
      */
     private OnPictureSelectedListener mOnPictureSelectedListener;
 
+
+    protected void function2(ImageView imageView){
+        Toast.makeText(this.getContext(), "开始下载服务器结果……", Toast.LENGTH_SHORT).show();
+
+        downLoad(Constant.BASE_URL+"files/images/3/10/123.jpeg","caffeRes01.jpeg");
+        loadImage("caffeRes01.jpeg",imageView);
+    }
+
+    protected void function3(){
+        Toast.makeText(this.getContext(), "点击了function3", Toast.LENGTH_SHORT).show();
+    }
+
+    protected void function4(){
+        Toast.makeText(this.getContext(), "点击了function4", Toast.LENGTH_SHORT).show();
+    }
+
     /**
      * 剪切图片
      */
     protected void selectPicture() {
         mSelectPicturePopupWindow.showPopupWindow(mActivity);
+        //Toast.makeText(this.getContext(), "将图片上传至服务器……", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -242,4 +268,58 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
         void onPictureSelected(Uri fileUri, Bitmap bitmap);
     }
 
+
+    /**
+     * 从服务器下载文件
+     * @param path 下载文件的地址
+     * @param FileName 文件名字
+     */
+    public static void downLoad(final String path, final String FileName) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(path);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setReadTimeout(5000);
+                    con.setConnectTimeout(5000);
+                    con.setRequestProperty("Charset", "UTF-8");
+                    con.setRequestMethod("GET");
+                    //Log.e("connCode",""+con.getResponseCode());
+                    if (con.getResponseCode() == 200) {
+                        InputStream is = con.getInputStream();//获取输入流
+                        //Log.e("datatest",con.getInputStream().read(new byte[1024])+"");
+                        FileOutputStream fileOutputStream = null;//文件输出流
+                        if (is != null) {
+                            FileUtils fileUtils = new FileUtils();
+                            fileOutputStream = new FileOutputStream(fileUtils.createFile(FileName));//指定文件保存路径，代码看下一步
+                            byte[] buf = new byte[1024];
+                            int ch;
+                            while ((ch = is.read(buf)) != -1) {
+                                fileOutputStream.write(buf, 0, ch);//将获取到的流写入文件中
+                                //Log.e("123123","456456");
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+
+    private void loadImage(String filename, ImageView imageView) {
+        String path = Environment.getExternalStorageDirectory().toString() + "/caffeRes";
+        try {
+            Bitmap bmp = BitmapFactory.decodeStream(new FileInputStream(new File(path, filename)));
+            imageView.setImageBitmap(bmp);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

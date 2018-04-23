@@ -33,6 +33,15 @@ public class MainFragment extends PictureSelectFragment {
     @Bind(R.id.main_frag_picture_iv)
     ImageView mPictureIv;
 
+    @Bind(R.id.main_frag_func2)
+    ImageView mPictureFunc2;
+
+    @Bind(R.id.main_frag_func3)
+    ImageView mPictureFunc3;
+
+    @Bind(R.id.main_frag_func4)
+    ImageView mPictureFunc4;
+
     public static MainFragment newInstance() {
         return new MainFragment();
     }
@@ -54,6 +63,27 @@ public class MainFragment extends PictureSelectFragment {
             @Override
             public void onClick(View v) {
                 selectPicture();
+            }
+        });
+
+        mPictureFunc2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                function2(mPictureFunc2);
+            }
+        });
+
+        mPictureFunc3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                function3();
+            }
+        });
+
+        mPictureFunc4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                function4();
             }
         });
         // 设置裁剪图片结果监听
