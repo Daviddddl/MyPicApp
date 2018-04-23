@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:name=".KevinApplication"
         android:allowBackup="true"
@@ -22,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.CropActivity" />
+        <activity android:name=".activity.HistoryActivity" />
+        <activity android:name=".activity.OtherActivity"></activity>
     </application>
 
 </manifest>

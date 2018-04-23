@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.kevin.crop.UCrop;
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.CropActivity;
+import com.kevin.imageuploadclient.activity.HistoryActivity;
+import com.kevin.imageuploadclient.activity.OtherActivity;
 import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
 import com.kevin.imageuploadclient.view.SelectPicturePopupWindow;
@@ -62,10 +64,13 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
 
     protected void function3(){
         Toast.makeText(this.getContext(), "点击了function3", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this.getContext(),HistoryActivity.class));
+
     }
 
     protected void function4(){
         Toast.makeText(this.getContext(), "点击了function4", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this.getContext(),OtherActivity.class));
     }
 
     /**

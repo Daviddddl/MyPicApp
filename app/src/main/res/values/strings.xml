@@ -7,4 +7,10 @@
     <string name="permission_read_storage_rationale">选择图片时需要读取权限</string>
     <string name="permission_write_storage_rationale">拍照时需要存储权限</string>
     <string name="app_title">汉字修复大师</string>
+    <string name="history_title">历史记录</string>
+    <string name="upload">上传图片</string>
+    <string name="download">获取结果</string>
+    <string name="history">历史记录</string>
+    <string name="otherfuncs">其他功能</string>
+    <string name="other_func">其他功能</string>
 </resources>
