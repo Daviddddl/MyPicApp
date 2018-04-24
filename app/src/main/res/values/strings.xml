@@ -13,4 +13,8 @@
     <string name="history">历史记录</string>
     <string name="otherfuncs">其他功能</string>
     <string name="other_func">其他功能</string>
+    <string name="repair">残损修复</string>
+    <string name="identify">笔迹鉴定</string>
+    <string name="imitate">风格模仿</string>
+    <string name="manufacture">手写识别</string>
 </resources>

@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/main_frag_func2"
         android:layout_marginStart="30dp"
-        android:src="@mipmap/func1" />
+        android:src="@mipmap/repair" />
 
     <ImageView
         android:id="@+id/main_frag_func2"
@@ -24,7 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="150dp"
-        android:src="@mipmap/func2" />
+        android:src="@mipmap/identify" />
 
     <ImageView
         android:id="@+id/main_frag_func3"
@@ -34,7 +34,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="60dp"
-        android:src="@mipmap/func3" />
+        android:src="@mipmap/imitate" />
 
     <ImageView
         android:id="@+id/main_frag_func4"
@@ -43,7 +43,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
         android:layout_alignTop="@+id/main_frag_func3"
-        android:src="@mipmap/func4" />
+        android:src="@mipmap/manufacture" />
 
     <TextView
         android:id="@+id/app_title"
@@ -63,7 +63,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/main_frag_picture_iv"
         android:layout_marginTop="120dp"
-        android:text="@string/upload" />
+        android:text="@string/repair" />
 
     <TextView
         android:id="@+id/download"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/main_frag_func2"
         android:layout_alignTop="@+id/upload"
-        android:text="@string/download" />
+        android:text="@string/identify" />
 
     <TextView
         android:id="@+id/history"
@@ -80,7 +80,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/main_frag_picture_iv"
         android:layout_marginBottom="250dp"
-        android:text="@string/history" />
+        android:text="@string/imitate" />
 
     <TextView
         android:id="@+id/textView5"
@@ -88,6 +88,6 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/download"
         android:layout_alignTop="@+id/history"
-        android:text="@string/otherfuncs" />
+        android:text="@string/manufacture" />
 
 </RelativeLayout>
