@@ -18,4 +18,5 @@
     <string name="imitate">风格模仿</string>
     <string name="manufacture">手写识别</string>
     <string name="result_title">结果展示</string>
+    <string name="upload_title">上传图片</string>
 </resources>

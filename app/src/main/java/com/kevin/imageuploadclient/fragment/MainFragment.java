@@ -31,7 +31,7 @@ public class MainFragment extends PictureSelectFragment {
     Toolbar toolbar;
 
     @Bind(R.id.main_frag_func1)
-    ImageView mPictureIv;
+    ImageView mPictureFunc1;
 
     @Bind(R.id.main_frag_func2)
     ImageView mPictureFunc2;
@@ -59,10 +59,17 @@ public class MainFragment extends PictureSelectFragment {
     @Override
     public void initEvents() {
         // 设置图片点击监听
-        mPictureIv.setOnClickListener(new View.OnClickListener() {
+        /*mPictureFunc1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectPicture();
+            }
+        });*/
+
+        mPictureFunc1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                function1();
             }
         });
 
@@ -130,7 +137,7 @@ public class MainFragment extends PictureSelectFragment {
                 Log.i(TAG, "图片地址 " + Constant.BASE_URL + result);
                 Glide.with(mContext)
                         .load(Constant.BASE_URL + result)
-                        .into(mPictureIv);
+                        .into(mPictureFunc1);
             }
         }
     }

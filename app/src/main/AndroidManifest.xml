@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".activity.CropActivity" />
         <activity android:name=".activity.ImitateActivity" />
-        <activity android:name=".activity.ManuFactureActivity"></activity>
+        <activity android:name=".activity.ManuFactureActivity" />
+        <activity android:name=".activity.UploadActivity"></activity>
     </application>
 
 </manifest>

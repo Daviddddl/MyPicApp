@@ -6,7 +6,6 @@
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     tools:ignore="ExtraText">
-    tools:context=".activity.OtherActivity">
     <include layout="@layout/toolbar_layout" />
 
     <TextView

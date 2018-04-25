@@ -23,6 +23,7 @@ import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.CropActivity;
 import com.kevin.imageuploadclient.activity.ImitateActivity;
 import com.kevin.imageuploadclient.activity.ManuFactureActivity;
+import com.kevin.imageuploadclient.activity.UploadActivity;
 import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
 import com.kevin.imageuploadclient.view.SelectPicturePopupWindow;
@@ -54,6 +55,10 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
      */
     private OnPictureSelectedListener mOnPictureSelectedListener;
 
+
+    protected void function1(){
+        startActivity(new Intent(this.getContext(),UploadActivity.class));
+    }
 
     protected void function2(ImageView imageView){
         Toast.makeText(this.getContext(), "开始下载服务器结果……", Toast.LENGTH_SHORT).show();
