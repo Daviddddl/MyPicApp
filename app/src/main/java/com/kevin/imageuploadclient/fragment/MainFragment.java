@@ -30,7 +30,7 @@ public class MainFragment extends PictureSelectFragment {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.main_frag_picture_iv)
+    @Bind(R.id.main_frag_func1)
     ImageView mPictureIv;
 
     @Bind(R.id.main_frag_func2)

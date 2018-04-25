@@ -10,7 +10,7 @@ public class ActivityStack {
     public LinkedList<Activity> activityList = null;
 
     public ActivityStack() {
-        activityList = new LinkedList<Activity>();
+        activityList = new LinkedList<>();
     }
 
     /**

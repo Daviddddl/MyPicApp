@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.kevin.imageuploadclient.R;
 
-public class OtherActivity extends AppCompatActivity {
+public class ImitateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_other);
+        setContentView(R.layout.activity_imitate);
     }
 }

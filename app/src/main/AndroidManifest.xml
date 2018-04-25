@@ -21,8 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.CropActivity" />
-        <activity android:name=".activity.HistoryActivity" />
-        <activity android:name=".activity.OtherActivity"></activity>
+        <activity android:name=".activity.ImitateActivity" />
+        <activity android:name=".activity.ManuFactureActivity"></activity>
     </application>
 
 </manifest>

@@ -17,4 +17,5 @@
     <string name="identify">笔迹鉴定</string>
     <string name="imitate">风格模仿</string>
     <string name="manufacture">手写识别</string>
+    <string name="result_title">结果展示</string>
 </resources>
