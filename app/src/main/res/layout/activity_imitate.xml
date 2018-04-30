@@ -9,57 +9,13 @@
     <include layout="@layout/toolbar_layout" />
 
     <ImageView
-        android:id="@+id/history_item1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="150dp"
-        android:src="@mipmap/func1" />
-
-    <ImageView
-        android:id="@+id/history_item1_res"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/history_item1"
-        android:layout_marginEnd="80dp"
-        android:src="@mipmap/func1" />
-
-    <ImageView
-        android:id="@+id/history_item2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/imitate_result"
+        android:layout_width="240dp"
+        android:layout_height="150dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/history_item1"
-        android:layout_marginBottom="226dp"
-        android:src="@mipmap/func2" />
-
-    <ImageView
-        android:id="@+id/history_item2_res"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignStart="@+id/history_item1_res"
-        android:layout_alignTop="@+id/history_item2"
-        android:src="@mipmap/func2" />
-
-    <ImageView
-        android:id="@+id/history_item3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/history_item2"
-        android:layout_marginBottom="110dp"
-        android:src="@mipmap/func3" />
-
-    <ImageView
-        android:id="@+id/history_item3_res"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignStart="@+id/history_item2_res"
-        android:layout_alignTop="@+id/history_item3"
-        android:src="@mipmap/func3" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:src="@mipmap/func1" />
 
     <TextView
         android:id="@+id/imitate_title"
@@ -72,6 +28,37 @@
         android:textSize="30sp"
         android:text="@string/imitate_title" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="130dp"
+        android:text="@string/imitate_input" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/imitate_hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/imitate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="226dp"
+        android:text="@string/imitate_button" />
 
 
 </RelativeLayout>

@@ -30,4 +30,11 @@
     <string name="manufacture_title">手写识别大师</string>
     <string name="identify_title">笔迹鉴定大师</string>
     <string name="imitate_title">风格模仿大师</string>
+    <string name="identify_result">笔迹鉴定结果：</string>
+    <string name="identify_button">开始笔迹鉴定</string>
+    <string name="imitate_input">风格模仿输入：</string>
+    <string name="imitate_hint">请输入示例</string>
+    <string name="imitate_button">开始风格模仿</string>
+    <string name="manufacture_input_text">手写图片</string>
+    <string name="manufacture_result_text">手写识别结果：</string>
 </resources>

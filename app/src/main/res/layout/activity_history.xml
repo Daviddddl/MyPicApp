@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:ignore="ExtraText">
+    <include layout="@layout/toolbar_layout" />
+
+    <ImageView
+        android:id="@+id/history_item1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="150dp"
+        android:src="@mipmap/func1" />
+
+    <ImageView
+        android:id="@+id/history_item1_res"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/history_item1"
+        android:layout_marginEnd="80dp"
+        android:src="@mipmap/func1" />
+
+    <ImageView
+        android:id="@+id/history_item2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/history_item1"
+        android:layout_marginBottom="226dp"
+        android:src="@mipmap/func2" />
+
+    <ImageView
+        android:id="@+id/history_item2_res"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/history_item1_res"
+        android:layout_alignTop="@+id/history_item2"
+        android:src="@mipmap/func2" />
+
+    <ImageView
+        android:id="@+id/history_item3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/history_item2"
+        android:layout_marginBottom="110dp"
+        android:src="@mipmap/func3" />
+
+    <ImageView
+        android:id="@+id/history_item3_res"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/history_item2_res"
+        android:layout_alignTop="@+id/history_item3"
+        android:src="@mipmap/func3" />
+
+    <TextView
+        android:id="@+id/history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="@string/history_title" />
+
+
+
+</RelativeLayout>

@@ -50,6 +50,7 @@ public class UploadActivity extends AppCompatActivity {
     private Button mBtnTakePhoto;
     private Button mBtnSelectPhoto;
     private Button mBtnGetRes;
+    private Button mBtnGetHistory;
     private TextView mTvPath;
     private TextView mTvUri;
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
@@ -63,6 +64,7 @@ public class UploadActivity extends AppCompatActivity {
         mBtnTakePhoto = findViewById(R.id.btnTakePhoto);
         mBtnSelectPhoto = findViewById(R.id.btnSelectPhoto);
         mBtnGetRes = findViewById(R.id.getResButton);
+        mBtnGetHistory = findViewById(R.id.getHistoryButton);
         mTvPath = findViewById(R.id.tvPath);
         mTvUri = findViewById(R.id.tvUri);
         mIvPic = findViewById(R.id.ivPic);
@@ -133,6 +135,14 @@ public class UploadActivity extends AppCompatActivity {
                 // 3、下载结果
                 downLoad("http://172.20.10.203:8080/files/images/3/10/123.jpeg","caffeRes01.jpg");
                 loadImage("caffeRes01.jpg");
+            }
+        });
+
+        mBtnGetHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 4、历史记录
+                startActivity(new Intent(getApplicationContext(),HistoryActivity.class));
             }
         });
     }

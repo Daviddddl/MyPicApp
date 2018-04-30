@@ -23,17 +23,25 @@
         android:id="@+id/btnSelectPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/repair_title"
         android:layout_alignTop="@+id/btnTakePhoto"
-        android:layout_centerHorizontal="true"
         android:text="@string/album" />
 
     <Button
         android:id="@+id/getResButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnSelectPhoto"
+        android:layout_alignEnd="@+id/repair_title"
+        android:layout_alignTop="@+id/btnTakePhoto"
         android:text="@string/get_result" />
+
+    <Button
+        android:id="@+id/getHistoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnTakePhoto"
+        android:text="@string/history" />
 
     <TextView
         android:layout_width="wrap_content"
