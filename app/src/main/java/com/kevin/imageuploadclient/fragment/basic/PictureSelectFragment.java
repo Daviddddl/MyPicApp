@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.kevin.crop.UCrop;
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.CropActivity;
+import com.kevin.imageuploadclient.activity.IdentifyActivity;
 import com.kevin.imageuploadclient.activity.ImitateActivity;
 import com.kevin.imageuploadclient.activity.ManuFactureActivity;
 import com.kevin.imageuploadclient.activity.UploadActivity;
@@ -61,10 +62,11 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
     }
 
     protected void function2(ImageView imageView){
-        Toast.makeText(this.getContext(), "开始下载服务器结果……", Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(this.getContext(), "开始下载服务器结果……", Toast.LENGTH_SHORT).show();
 
         downLoad(Constant.BASE_URL+"files/images/3/10/123.jpeg","caffeRes01.jpeg");
-        loadImage("caffeRes01.jpeg",imageView);
+        loadImage("caffeRes01.jpeg",imageView);*/
+        startActivity(new Intent(this.getContext(), IdentifyActivity.class));
     }
 
     protected void function3(){

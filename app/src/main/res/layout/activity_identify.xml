@@ -9,7 +9,7 @@
     <include layout="@layout/toolbar_layout" />
 
     <TextView
-        android:id="@+id/manufacture_title"
+        android:id="@+id/identify_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,6 +17,6 @@
         android:layout_marginTop="70dp"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:text="@string/manufacture_title" />
+        android:text="@string/identify_title" />
 
 </RelativeLayout>
