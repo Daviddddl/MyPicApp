@@ -19,4 +19,12 @@
     <string name="manufacture">手写识别</string>
     <string name="result_title">结果展示</string>
     <string name="upload_title">上传图片</string>
+    <string name="camera">拍照</string>
+    <string name="album">相册</string>
+    <string name="get_result">获取结果</string>
+    <string name="pic_path">图片路径：</string>
+    <string name="tvpath">tvPath:</string>
+    <string name="image_uri">图片Uri：</string>
+    <string name="tvuri">tvUri:</string>
+    <string name="repair_title">残损修复大师</string>
 </resources>
