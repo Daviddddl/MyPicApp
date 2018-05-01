@@ -116,4 +116,6 @@
     <string name="identify_pic2_camera">图2拍照</string>
     <string name="identify_pic2_album">图2相册</string>
     <string name="help_title">帮助</string>
+    <string name="repair_label">残损修复</string>
+    <string name="identify_label">笔迹鉴定</string>
 </resources>
