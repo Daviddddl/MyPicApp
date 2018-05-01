@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -41,6 +42,12 @@ public class MainFragment extends PictureSelectFragment {
 
     @Bind(R.id.main_frag_func4)
     ImageView mPictureFunc4;
+
+    @Bind(R.id.setting)
+    Button mBtnSetting;
+
+    @Bind(R.id.help)
+    Button mBtnHelp;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -83,6 +90,7 @@ public class MainFragment extends PictureSelectFragment {
         mPictureFunc3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //selectPicture();
                 function3();
             }
         });
@@ -106,6 +114,22 @@ public class MainFragment extends PictureSelectFragment {
 
             }
         });
+
+
+        mBtnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                functionSetting();
+            }
+        });
+
+        mBtnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                functionHelp();
+            }
+        });
+
     }
 
     /**

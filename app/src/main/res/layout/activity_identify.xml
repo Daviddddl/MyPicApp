@@ -20,7 +20,7 @@
         android:text="@string/identify_title" />
 
     <ImageView
-        android:id="@+id/history_item1"
+        android:id="@+id/pic1"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
@@ -30,21 +30,57 @@
         android:src="@mipmap/func1" />
 
     <ImageView
-        android:id="@+id/history_item1_res"
+        android:id="@+id/pic2"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/history_item1"
+        android:layout_alignTop="@+id/pic1"
         android:layout_marginEnd="30dp"
-        android:src="@mipmap/func1" />
+        android:src="@mipmap/func2" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/pic1_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="210dp"
+        android:text="@string/identify_pic1_camera" />
+
+    <Button
+        android:id="@+id/pic1_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="210dp"
+        android:text="@string/identify_pic1_album" />
+
+    <Button
+        android:id="@+id/pic2_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="190dp"
+        android:layout_marginBottom="210dp"
+        android:text="@string/identify_pic2_camera" />
+
+    <Button
+        android:id="@+id/pic2_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="280dp"
+        android:layout_marginBottom="210dp"
+        android:text="@string/identify_pic2_album" />
+
+    <Button
+        android:id="@+id/identify_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="160dp"
         android:text="@string/identify_button" />
 
     <TextView

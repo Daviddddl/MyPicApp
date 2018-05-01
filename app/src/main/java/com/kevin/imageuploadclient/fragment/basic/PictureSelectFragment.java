@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -21,9 +22,11 @@ import android.widget.Toast;
 import com.kevin.crop.UCrop;
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.CropActivity;
+import com.kevin.imageuploadclient.activity.HelpActivity;
 import com.kevin.imageuploadclient.activity.IdentifyActivity;
 import com.kevin.imageuploadclient.activity.ImitateActivity;
 import com.kevin.imageuploadclient.activity.ManuFactureActivity;
+import com.kevin.imageuploadclient.activity.SettingsActivity;
 import com.kevin.imageuploadclient.activity.UploadActivity;
 import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
@@ -80,6 +83,16 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
         startActivity(new Intent(this.getContext(),ManuFactureActivity.class));
     }
 
+    protected void functionSetting(){
+        Toast.makeText(this.getContext(), "点击了设置", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this.getContext(), SettingsActivity.class));
+    }
+
+
+    protected void functionHelp(){
+        Toast.makeText(this.getContext(), "点击了帮助", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this.getContext(), HelpActivity.class));
+    }
     /**
      * 剪切图片
      */

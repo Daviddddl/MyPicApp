@@ -37,7 +37,11 @@
         <activity android:name=".activity.ManuFactureActivity" />
         <activity android:name=".activity.UploadActivity" />
         <activity android:name=".activity.IdentifyActivity" />
-        <activity android:name=".activity.HistoryActivity"></activity>
+        <activity android:name=".activity.HistoryActivity" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".activity.HelpActivity"></activity>
     </application>
 
 </manifest>

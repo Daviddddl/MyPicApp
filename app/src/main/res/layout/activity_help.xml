@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:ignore="ExtraText">
+    <include layout="@layout/toolbar_layout" />
+
+    <TextView
+        android:id="@+id/help_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="@string/help_title" />
+
+    <TextView
+        android:id="@+id/repair_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="160dp"
+        android:text="残损修复" />
+
+    <TextView
+        android:id="@+id/identity_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_marginTop="239dp"
+        android:text="笔迹鉴定" />
+
+    <TextView
+        android:id="@+id/imitate_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_marginBottom="240dp"
+        android:text="风格模仿" />
+
+    <TextView
+        android:id="@+id/manufacture_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_marginBottom="157dp"
+        android:text="手写识别" />
+
+
+</RelativeLayout>

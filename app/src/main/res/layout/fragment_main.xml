@@ -90,4 +90,20 @@
         android:layout_alignTop="@+id/imitate"
         android:text="@string/manufacture" />
 
+    <Button
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/main_frag_func1"
+        android:layout_alignParentBottom="true"
+        android:text="设置" />
+
+    <Button
+        android:id="@+id/help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/main_frag_func2"
+        android:text="帮助" />
+
 </RelativeLayout>
