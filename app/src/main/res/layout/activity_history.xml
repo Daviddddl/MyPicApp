@@ -81,6 +81,22 @@
         android:layout_marginBottom="30dp"
         android:text="@string/clear_history_button" />
 
+    <TextView
+        android:id="@+id/origin_pic_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/history_item1"
+        android:layout_marginTop="120dp"
+        android:text="原始列表" />
+
+    <TextView
+        android:id="@+id/result_pic_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/history_item1_res"
+        android:layout_alignTop="@+id/origin_pic_list"
+        android:text="结果列表" />
 
 
 </RelativeLayout>

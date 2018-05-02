@@ -1,7 +1,9 @@
 package com.kevin.imageuploadclient.util;
 
+import android.graphics.Bitmap;
 import android.os.Environment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -34,5 +36,12 @@ public class FileUtils {
      */
     public File createFile(String FileName) {
         return new File(path, FileName);
+    }
+
+
+    public byte[] img(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 }

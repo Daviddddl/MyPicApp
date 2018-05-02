@@ -30,6 +30,7 @@ import com.kevin.imageuploadclient.util.FileUtils;
 import com.kevin.imageuploadclient.util.LQRPhotoSelectUtils;
 import com.kevin.imageuploadclient.util.UploadUtil;
 import com.kevin.imageuploadclient.view.SelectPicturePopupWindow;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -59,6 +60,8 @@ public class UploadActivity extends AppCompatActivity {
     private TextView mTvUri;
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
     private ImageView mIvPic;
+
+    //private AVLoadingIndicatorView avi;
 
 
     @Override
@@ -99,7 +102,9 @@ public class UploadActivity extends AppCompatActivity {
                 //String requestUrl = Constant.BASE_URL+"/uploadimage";  // 测试本地部署
                 UploadUtil.getInstance().uploadFile(absolutePath,fileKey,requestUrl,null);
 
-                //下面考虑再将上传的图片信息保存到远程数据库中，以便装B
+                //下面考虑再将上传的图片信息保存到远程数据库中，以便获取历史操作列表
+                Bitmap pic = BitmapFactory.decodeFile(absolutePath);
+                byte[] picBytes = new FileUtils().img(pic);
 
 
 
@@ -142,8 +147,13 @@ public class UploadActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 3、下载结果
                 // 需要配置路径
+
+                //startAnim(avi);  // 开启加载动画
+
                 downLoad(remotePath,fileName);
                 loadImage(fileName);
+
+                //stopAnim(avi);  // 关闭加载动画
             }
         });
 
@@ -298,5 +308,16 @@ public class UploadActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
+    /*void startAnim(AVLoadingIndicatorView avi){
+        //avi.show();
+        avi.smoothToShow();
+    }
+
+    void stopAnim(AVLoadingIndicatorView avi){
+        //avi.hide();
+        avi.smoothToHide();
+    }*/
 
 }
