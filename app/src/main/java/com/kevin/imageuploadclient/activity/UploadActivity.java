@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.kevin.imageuploadclient.R;
+import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
 import com.kevin.imageuploadclient.util.LQRPhotoSelectUtils;
 import com.kevin.imageuploadclient.util.UploadUtil;
@@ -46,6 +47,9 @@ import kr.co.namee.permissiongen.PermissionSuccess;
 
 public class UploadActivity extends AppCompatActivity {
 
+    // 根据部署环境设置文件路径
+    static String remotePath = Constant.BASE_URL + "/files/images/3/10/123.jpeg";
+    static String fileName = "caffeRes01.jpg";
 
     private Button mBtnTakePhoto;
     private Button mBtnSelectPhoto;
@@ -91,7 +95,8 @@ public class UploadActivity extends AppCompatActivity {
                 Glide.with(UploadActivity.this).load(outputUri).into(mIvPic);
 
                 String fileKey = "file";
-                String requestUrl = "http://192.168.20.124:8080/ImageUploadServer_war/uploadimage";
+                //String requestUrl = Constant.BASE_URL+"/ImageUploadServer_war/uploadimage";  // 测试war包部署
+                String requestUrl = Constant.BASE_URL+"/uploadimage";  // 测试本地部署
                 UploadUtil.getInstance().uploadFile(absolutePath,fileKey,requestUrl,null);
 
 
@@ -133,8 +138,9 @@ public class UploadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 3、下载结果
-                downLoad("http://172.20.10.203:8080/files/images/3/10/123.jpeg","caffeRes01.jpg");
-                loadImage("caffeRes01.jpg");
+                // 需要配置路径
+                downLoad(remotePath,fileName);
+                loadImage(fileName);
             }
         });
 

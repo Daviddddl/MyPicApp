@@ -33,12 +33,6 @@ public class KevinApplication extends Application {
         return kevinApplication;
     }
 
-    /**
-     * @description 初始化配置文件
-     *
-     * @return void
-     * @date 2015-5-22 10:44:48
-     */
     private void initConfiguration() {
 
     }

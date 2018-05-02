@@ -118,4 +118,6 @@
     <string name="help_title">帮助</string>
     <string name="repair_label">残损修复</string>
     <string name="identify_label">笔迹鉴定</string>
+    <string name="imitate_label">风格模仿</string>
+    <string name="manufacture_label">手写识别</string>
 </resources>

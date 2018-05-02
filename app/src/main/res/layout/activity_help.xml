@@ -45,7 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/repair_help"
         android:layout_marginBottom="240dp"
-        android:text="风格模仿" />
+        android:text="@string/imitate_label" />
 
     <TextView
         android:id="@+id/manufacture_help"
@@ -54,7 +54,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/repair_help"
         android:layout_marginBottom="157dp"
-        android:text="手写识别" />
+        android:text="@string/manufacture_label" />
 
 
 </RelativeLayout>
