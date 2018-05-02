@@ -99,6 +99,9 @@ public class UploadActivity extends AppCompatActivity {
                 String requestUrl = Constant.BASE_URL+"/uploadimage";  // 测试本地部署
                 UploadUtil.getInstance().uploadFile(absolutePath,fileKey,requestUrl,null);
 
+                //下面考虑再将上传的图片信息保存到远程数据库中，以便装B
+
+
 
             }
         }, false);

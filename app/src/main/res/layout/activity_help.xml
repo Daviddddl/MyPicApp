@@ -35,25 +35,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/repair_help"
-        android:layout_marginTop="239dp"
+        android:layout_marginTop="240dp"
         android:text="@string/identify_label" />
 
     <TextView
         android:id="@+id/imitate_help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/repair_help"
-        android:layout_marginBottom="240dp"
+        android:layout_marginTop="320dp"
         android:text="@string/imitate_label" />
 
     <TextView
         android:id="@+id/manufacture_help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/repair_help"
-        android:layout_marginBottom="157dp"
+        android:layout_marginTop="400dp"
         android:text="@string/manufacture_label" />
 
 
