@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.kevin.imageuploadclient.R;
@@ -83,6 +84,7 @@ public class MainFragment extends PictureSelectFragment {
         mPictureFunc2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 function2(mPictureFunc2);
             }
         });

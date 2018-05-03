@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kevin.imageuploadclient.R;
+import com.kevin.imageuploadclient.util.Constant;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -191,7 +192,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
 
-            if (email.equals("123@123.com:test") && password.equals("123123123"))
+            if (email.equals(Constant.ROOT_EMAIL) && password.equals(Constant.ROOT_PWD)) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Constant.IS_ROOT = true;
+            } else if (email.equals(Constant.CLIENT_EMAIL) && password.equals(Constant.CLIENT_PWD))
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             else
                 Toast.makeText(getApplicationContext(), "用户名密码错误！", Toast.LENGTH_SHORT).show();

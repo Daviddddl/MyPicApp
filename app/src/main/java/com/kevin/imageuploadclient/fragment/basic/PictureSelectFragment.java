@@ -61,7 +61,10 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
 
 
     protected void function1(){
-        startActivity(new Intent(this.getContext(),UploadActivity.class));
+        if (Constant.IS_ROOT)
+            startActivity(new Intent(this.getContext(),UploadActivity.class));
+        else
+            Toast.makeText(this.getContext(), "抱歉，您没有权限！", Toast.LENGTH_SHORT).show();
     }
 
     protected void function2(ImageView imageView){
