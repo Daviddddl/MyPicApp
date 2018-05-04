@@ -19,6 +19,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.jkb.slidemenu.SlideMenuAction;
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
@@ -49,6 +51,7 @@ import kr.co.namee.permissiongen.PermissionFail;
 import kr.co.namee.permissiongen.PermissionGen;
 import kr.co.namee.permissiongen.PermissionSuccess;
 
+
 public class UploadActivity extends AppCompatActivity {
 
     // 根据部署环境设置文件路径
@@ -67,8 +70,7 @@ public class UploadActivity extends AppCompatActivity {
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
     private ImageView mIvPic;
 
-    //private AVLoadingIndicatorView avi;
-
+    private SlideMenuAction slideMenuAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,9 @@ public class UploadActivity extends AppCompatActivity {
         mIvPic = findViewById(R.id.ivPic);
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
+
+        slideMenuAction = findViewById(R.id.mainSlideMenu);
+        slideMenuAction.setSlideMode(SlideMenuAction.SLIDE_MODE_LEFT_RIGHT);
 
         init();
         initListener();
@@ -123,7 +128,6 @@ public class UploadActivity extends AppCompatActivity {
                 }, 3000);
 
                 //下面考虑再将上传的图片信息保存到远程数据库中，以便获取历史操作列表
-
 
 
             }
@@ -292,7 +296,6 @@ public class UploadActivity extends AppCompatActivity {
                     != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
-
             }
         }
     }
@@ -348,16 +351,5 @@ public class UploadActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
-    /*void startAnim(AVLoadingIndicatorView avi){
-        //avi.show();
-        avi.smoothToShow();
-    }
-
-    void stopAnim(AVLoadingIndicatorView avi){
-        //avi.hide();
-        avi.smoothToHide();
-    }*/
 
 }

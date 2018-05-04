@@ -3,10 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     tools:ignore="ExtraText">
-    <include layout="@layout/toolbar_layout" />
+
+    <com.jkb.slidemenu.SlideMenuLayout
+        android:id="@+id/mainSlideMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:slideMode="both">
+        <include layout="@layout/content_menu_left" />
+        <include layout="@layout/content_menu_right" />
+        <include layout="@layout/content_menu_content" />
+    </com.jkb.slidemenu.SlideMenuLayout>
 
     <TextView
         android:id="@+id/help_title"
