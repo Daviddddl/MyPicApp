@@ -28,6 +28,7 @@ import com.kevin.imageuploadclient.activity.ImitateActivity;
 import com.kevin.imageuploadclient.activity.ManuFactureActivity;
 import com.kevin.imageuploadclient.activity.SettingsActivity;
 import com.kevin.imageuploadclient.activity.UploadActivity;
+import com.kevin.imageuploadclient.activity.UserDetailActivity;
 import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
 import com.kevin.imageuploadclient.view.SelectPicturePopupWindow;
@@ -95,6 +96,11 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
     protected void functionHelp(){
         Toast.makeText(this.getContext(), "点击了帮助", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this.getContext(), HelpActivity.class));
+    }
+
+    protected void functionAccount(){
+        Toast.makeText(this.getContext(), "点击了我的", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this.getContext(), UserDetailActivity.class));
     }
     /**
      * 剪切图片

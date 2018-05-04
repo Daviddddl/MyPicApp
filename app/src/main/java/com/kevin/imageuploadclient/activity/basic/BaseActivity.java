@@ -32,8 +32,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 	/**
 	 * 设置总是显示溢出菜单
 	 *
-	 * @return void
-	 * @date 2015-7-25 12:01:31
 	 */
 	private void setOverflowShowingAlways() {
 		try {

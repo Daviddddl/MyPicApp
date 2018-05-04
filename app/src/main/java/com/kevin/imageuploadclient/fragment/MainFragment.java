@@ -50,6 +50,9 @@ public class MainFragment extends PictureSelectFragment {
     @Bind(R.id.help)
     Button mBtnHelp;
 
+    @Bind(R.id.btn_account)
+    Button mBtnAccount;
+
     public static MainFragment newInstance() {
         return new MainFragment();
     }
@@ -129,6 +132,13 @@ public class MainFragment extends PictureSelectFragment {
             @Override
             public void onClick(View v) {
                 functionHelp();
+            }
+        });
+
+        mBtnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                functionAccount();
             }
         });
 
