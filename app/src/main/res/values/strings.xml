@@ -139,7 +139,7 @@
     <string name="btn_register">注册</string>
     <string name="btn_link_to_register">没有账号? 立刻注册.</string>
     <string name="btn_link_to_login">已经注册! 点此登录.</string>
-    <string name="welcome">欢迎</string>
+    <string name="welcome">欢迎使用本应用！</string>
     <string name="btn_logout">退出</string>
     <string name="name">全名</string>
     <string name="up_button">提升权限</string>

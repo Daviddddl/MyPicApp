@@ -16,6 +16,7 @@ import com.kevin.imageuploadclient.util.Constant;
 public class UserDetailActivity extends AppCompatActivity {
     private TextView nameView;
     private TextView emailView;
+    private TextView upView;
     private Button logoutButton;
     private Button upButton;
     private Button mainButton;
@@ -29,6 +30,7 @@ public class UserDetailActivity extends AppCompatActivity {
         sessionManager = new SessionManager(getApplicationContext());
         nameView = findViewById(R.id.nameView);
         emailView = findViewById(R.id.emailView);
+        upView = findViewById(R.id.upView);
         logoutButton = findViewById(R.id.logoutButton);
         upButton = findViewById(R.id.upButton);
         mainButton = findViewById(R.id.mainButton);
@@ -38,6 +40,7 @@ public class UserDetailActivity extends AppCompatActivity {
         }
         nameView.setText(sqLiteManager.getUserDetails().get("name"));
         emailView.setText(sqLiteManager.getUserDetails().get("email"));
+        upView.setText(Constant.IS_ROOT ? "恭喜您有权限！" : "抱歉您没有权限！");
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

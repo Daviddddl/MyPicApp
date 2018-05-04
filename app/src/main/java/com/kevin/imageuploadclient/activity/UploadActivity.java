@@ -2,6 +2,7 @@ package com.kevin.imageuploadclient.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -40,6 +42,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Time;
 
 import butterknife.Bind;
 import kr.co.namee.permissiongen.PermissionFail;
@@ -59,6 +62,8 @@ public class UploadActivity extends AppCompatActivity {
     private Button mBtnGetHistory;
     private TextView mTvPath;
     private TextView mTvUri;
+    private ProgressDialog progressDialog;
+    private Handler handler = new Handler();
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
     private ImageView mIvPic;
 
@@ -76,6 +81,8 @@ public class UploadActivity extends AppCompatActivity {
         mTvPath = findViewById(R.id.tvPath);
         mTvUri = findViewById(R.id.tvUri);
         mIvPic = findViewById(R.id.ivPic);
+        progressDialog = new ProgressDialog(this);//进度条
+        progressDialog.setCancelable(false);
 
         init();
         initListener();
@@ -103,7 +110,17 @@ public class UploadActivity extends AppCompatActivity {
                 String requestUrl = Constant.BASE_URL+"/uploadimage";  // 测试本地部署
                 UploadUtil.getInstance().uploadFile(absolutePath,fileKey,requestUrl,null);
 
+                progressDialog.setMessage("上传中...");
+                showProcessDialog();
+
                 Toast.makeText(getApplicationContext(), "上传成功！", Toast.LENGTH_SHORT).show();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        hideProcessDialog();
+                    }
+                }, 3000);
 
                 //下面考虑再将上传的图片信息保存到远程数据库中，以便获取历史操作列表
 
@@ -149,12 +166,20 @@ public class UploadActivity extends AppCompatActivity {
                 // 3、下载结果
                 // 需要配置路径
 
-                //startAnim(avi);  // 开启加载动画
+                progressDialog.setMessage("下载中...");
+                showProcessDialog();
+                Toast.makeText(getApplicationContext(), "下载成功！", Toast.LENGTH_SHORT).show();
 
                 downLoad(remotePath,fileName);
                 loadImage(fileName);
 
-                //stopAnim(avi);  // 关闭加载动画
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        hideProcessDialog();
+                    }
+                }, 3000);
+
             }
         });
 
@@ -202,6 +227,20 @@ public class UploadActivity extends AppCompatActivity {
             mLqrPhotoSelectUtils.attachToActivityForResult(requestCode, resultCode, data);
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    //显示进度条
+    private void showProcessDialog() {
+        if (!progressDialog.isShowing()) {
+            progressDialog.show();
+        }
+    }
+
+    //隐藏进度条
+    private void hideProcessDialog() {
+        if (progressDialog.isShowing()) {
+            progressDialog.hide();
         }
     }
 

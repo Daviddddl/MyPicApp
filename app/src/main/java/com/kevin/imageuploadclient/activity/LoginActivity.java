@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
     private void checkLogin(final String email, final String password) {
         String tag_string_req = "req_login";
         progressDialog.setMessage("登陆中...");
-        showDiaglog();
+        showDialog();
 
         //发起登陆请求
         StringRequest strReq = new StringRequest(Request.Method.POST, AppConfig.URL_LOGIN_Test, new Response.Listener<String>() {
@@ -160,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "ohhh, 现在服务器出错了！暂时无法登陆！", Toast.LENGTH_SHORT).show();    }
 
     //显示进度条
-    private void showDiaglog() {
+    private void showDialog() {
         if (!progressDialog.isShowing()) {
             progressDialog.show();
         }

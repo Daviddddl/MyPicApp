@@ -29,6 +29,14 @@
         android:layout_marginTop="160dp"
         android:text="@string/repair_label" />
 
+    <ImageView
+        android:id="@+id/history_item1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_below="@+id/repair_help"
+        android:src="@mipmap/repair" />
+
     <TextView
         android:id="@+id/identity_help"
         android:layout_width="wrap_content"
@@ -37,6 +45,14 @@
         android:layout_alignStart="@+id/repair_help"
         android:layout_marginTop="240dp"
         android:text="@string/identify_label" />
+
+    <ImageView
+        android:id="@+id/history_item2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_below="@+id/identity_help"
+        android:src="@mipmap/identify" />
 
     <TextView
         android:id="@+id/imitate_help"
@@ -47,6 +63,14 @@
         android:layout_marginTop="320dp"
         android:text="@string/imitate_label" />
 
+    <ImageView
+        android:id="@+id/history_item3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_below="@+id/imitate_help"
+        android:src="@mipmap/imitate" />
+
     <TextView
         android:id="@+id/manufacture_help"
         android:layout_width="wrap_content"
@@ -55,6 +79,47 @@
         android:layout_alignStart="@+id/repair_help"
         android:layout_marginTop="400dp"
         android:text="@string/manufacture_label" />
+
+    <ImageView
+        android:id="@+id/history_item4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/repair_help"
+        android:layout_below="@+id/manufacture_help"
+        android:src="@mipmap/manufacture" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/repair_help"
+        android:layout_marginStart="121dp"
+        android:text="此处时残存修复说明…………此处时残存修复说明…………此处时残存修复说明…………此处时残存修复说明…………" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignTop="@+id/identity_help"
+        android:text="此处时笔迹鉴定说明…………此处时笔迹鉴定说明…………此处时笔迹鉴定说明…………此处时笔迹鉴定说明…………" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignTop="@+id/imitate_help"
+        android:text="此处时风格模仿说明…………此处时风格模仿说明…………此处时风格模仿说明…………此处时风格模仿说明…………" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="218dp"
+        android:layout_height="70dp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignTop="@+id/manufacture_help"
+        android:text="此处时手写识别说明…………此处时手写识别说明…………此处时手写识别说明…………此处时手写识别说明…………" />
 
 
 </RelativeLayout>

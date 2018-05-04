@@ -44,6 +44,9 @@ public class MainFragment extends PictureSelectFragment {
     @Bind(R.id.main_frag_func4)
     ImageView mPictureFunc4;
 
+    @Bind(R.id.main_frag_func5)
+    ImageView mPictureFunc5;
+
     @Bind(R.id.setting)
     Button mBtnSetting;
 
@@ -103,14 +106,15 @@ public class MainFragment extends PictureSelectFragment {
         mPictureFunc4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                function4();
+                //function4();
+                selectPicture();
             }
         });
         // 设置裁剪图片结果监听
         setOnPictureSelectedListener(new OnPictureSelectedListener() {
             @Override
             public void onPictureSelected(Uri fileUri, Bitmap bitmap) {
-//                mPictureIv.setImageBitmap(bitmap);
+                mPictureFunc4.setImageBitmap(bitmap);
 
                 String filePath = fileUri.getEncodedPath();
                 final String imagePath = Uri.decode(filePath);
@@ -173,7 +177,7 @@ public class MainFragment extends PictureSelectFragment {
                 Log.i(TAG, "图片地址 " + Constant.BASE_URL + result);
                 Glide.with(mContext)
                         .load(Constant.BASE_URL + result)
-                        .into(mPictureFunc1);
+                        .into(mPictureFunc5);
             }
         }
     }

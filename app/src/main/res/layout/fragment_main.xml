@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="#01000000">
 
     <include layout="@layout/toolbar_layout" />
 
@@ -44,6 +45,11 @@
         android:layout_marginEnd="30dp"
         android:layout_alignTop="@+id/main_frag_func3"
         android:src="@mipmap/manufacture" />
+
+    <ImageView
+        android:id="@+id/main_frag_func5"
+        android:layout_width="1dp"
+        android:layout_height="1dp" />
 
     <TextView
         android:id="@+id/app_title"
