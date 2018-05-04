@@ -6,15 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.helper.SQLiteManager;
 import com.kevin.imageuploadclient.activity.helper.SessionManager;
+import com.kevin.imageuploadclient.util.Constant;
 
 public class UserDetailActivity extends AppCompatActivity {
     private TextView nameView;
     private TextView emailView;
     private Button logoutButton;
+    private Button upButton;
+    private Button mainButton;
     private SQLiteManager sqLiteManager;
     private SessionManager sessionManager;
     @Override
@@ -26,6 +30,8 @@ public class UserDetailActivity extends AppCompatActivity {
         nameView = findViewById(R.id.nameView);
         emailView = findViewById(R.id.emailView);
         logoutButton = findViewById(R.id.logoutButton);
+        upButton = findViewById(R.id.upButton);
+        mainButton = findViewById(R.id.mainButton);
 
         if (!sessionManager.isLoggedIn()) {
             logoutUser();
@@ -38,6 +44,27 @@ public class UserDetailActivity extends AppCompatActivity {
                 logoutUser();
             }
         });
+        upButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                upAuthority();
+            }
+        });
+        mainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backToMain();
+            }
+        });
+    }
+
+    private void backToMain(){
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+    }
+
+    private void upAuthority(){
+        Constant.IS_ROOT = true;
+        Toast.makeText(getApplicationContext(), "提升权限成功！您现在可以使用全部功能了！", Toast.LENGTH_SHORT).show();
     }
 
     //用户登出操作

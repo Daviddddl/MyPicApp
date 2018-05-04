@@ -28,6 +28,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13dp" />
+
+        <Button
+            android:id="@+id/mainButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:text="@string/main_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/upButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:text="@string/up_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="fill_parent"

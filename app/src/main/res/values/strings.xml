@@ -142,4 +142,6 @@
     <string name="welcome">欢迎</string>
     <string name="btn_logout">退出</string>
     <string name="name">全名</string>
+    <string name="up_button">提升权限</string>
+    <string name="main_button">主界面</string>
 </resources>

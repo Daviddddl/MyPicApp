@@ -49,7 +49,8 @@ import kr.co.namee.permissiongen.PermissionSuccess;
 public class UploadActivity extends AppCompatActivity {
 
     // 根据部署环境设置文件路径
-    static String remotePath = Constant.BASE_URL + "/ImageUploadServer_war/files/images/caffeRes.png";
+    //static String remotePath = Constant.BASE_URL + "/ImageUploadServer_war/files/images/caffeRes.png";
+    static String remotePath = Constant.BASE_URL + "/files/images/caffeRes.jpg";  // 本地测试
     static String fileName = "caffeRes01.jpg";
 
     private Button mBtnTakePhoto;
@@ -98,13 +99,13 @@ public class UploadActivity extends AppCompatActivity {
                 Glide.with(UploadActivity.this).load(outputUri).into(mIvPic);
 
                 String fileKey = "file";
-                String requestUrl = Constant.BASE_URL+"/ImageUploadServer_war/uploadimage";  // 测试war包部署
-                //String requestUrl = Constant.BASE_URL+"/uploadimage";  // 测试本地部署
+                //String requestUrl = Constant.BASE_URL+"/ImageUploadServer_war/uploadimage";  // 测试war包部署
+                String requestUrl = Constant.BASE_URL+"/uploadimage";  // 测试本地部署
                 UploadUtil.getInstance().uploadFile(absolutePath,fileKey,requestUrl,null);
 
+                Toast.makeText(getApplicationContext(), "上传成功！", Toast.LENGTH_SHORT).show();
+
                 //下面考虑再将上传的图片信息保存到远程数据库中，以便获取历史操作列表
-                Bitmap pic = BitmapFactory.decodeFile(absolutePath);
-                byte[] picBytes = new FileUtils().img(pic);
 
 
 

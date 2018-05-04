@@ -46,11 +46,15 @@
         <activity android:name=".activity.DBTestActivity" />
         <activity
             android:name=".activity.MyLoginActivity"
-            android:label="RegistAndLogin"></activity>
+            android:label="RegistAndLogin" />
         <activity
             android:name=".activity.RegisterActivity"
             android:label="RegistAndLogin" />
-        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.UserDetailActivity" />
+
+
+
     </application>
 
 </manifest>

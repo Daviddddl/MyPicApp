@@ -18,6 +18,7 @@ import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.helper.AppConfig;
 import com.kevin.imageuploadclient.activity.helper.SQLiteManager;
 import com.kevin.imageuploadclient.activity.helper.SessionManager;
+import com.kevin.imageuploadclient.util.Constant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -120,7 +121,8 @@ public class LoginActivity extends AppCompatActivity {
                         //在数据库中添加用户信息
                         sqLiteManager.addUser(name, email,uuid,created_at);
                         //跳转到用户信息页面
-                        Intent intent = new Intent(LoginActivity.this, UserDetailActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Constant.IS_ROOT = false;
                         startActivity(intent);
                         finish();
                     } else {
