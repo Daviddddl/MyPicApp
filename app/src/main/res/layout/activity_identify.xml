@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
+    android:background="#ADD8E6"
     android:fitsSystemWindows="true"
     tools:ignore="ExtraText">
     <include layout="@layout/toolbar_layout" />
@@ -44,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="10dp"
+        android:background="#98FB90"
         android:layout_marginBottom="210dp"
         android:text="@string/identify_pic1_camera" />
 
@@ -54,6 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
         android:layout_marginBottom="210dp"
+        android:background="#90EE90"
         android:text="@string/identify_pic1_album" />
 
     <Button
@@ -61,6 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="#98FB90"
         android:layout_marginLeft="190dp"
         android:layout_marginBottom="210dp"
         android:text="@string/identify_pic2_camera" />
@@ -70,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="#90EE90"
         android:layout_marginLeft="280dp"
         android:layout_marginBottom="210dp"
         android:text="@string/identify_pic2_album" />
@@ -78,6 +83,8 @@
         android:id="@+id/identify_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@color/btn_logut_bg"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="160dp"

@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
+    android:background="#ADD8E6"
     tools:ignore="ExtraText">
+
     <include layout="@layout/toolbar_layout" />
 
     <ImageView
@@ -45,11 +47,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp">
 
-        <android.support.design.widget.TextInputEditText
+        <EditText
             android:id="@+id/imitate_input_text"
             android:layout_width="230dp"
             android:layout_height="match_parent"
-            android:hint="@string/imitate_hint" />
+            android:hint="@string/imitate_hint"
+            android:padding="10dp"
+            android:singleLine="false"
+            android:background="@color/white" />
+
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -59,6 +65,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="226dp"
+        android:background="#90EE90"
         android:text="@string/imitate_button" />
 
 

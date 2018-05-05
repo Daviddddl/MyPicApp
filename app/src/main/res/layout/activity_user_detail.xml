@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADD8E6">
+
     <include layout="@layout/toolbar_layout" />
     <LinearLayout
         android:layout_width="fill_parent"
@@ -43,7 +46,7 @@
             android:layout_marginTop="40dip"
             android:text="@string/main_button"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:background="#90EE90"
             android:textSize="15dp" />
 
         <Button
@@ -53,7 +56,7 @@
             android:layout_marginTop="40dip"
             android:text="@string/up_button"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:background="#90EE90"
             android:textSize="15dp" />
         <Button
             android:id="@+id/logoutButton"

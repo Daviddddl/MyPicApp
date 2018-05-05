@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
+    android:background="#ADD8E6"
     tools:ignore="ExtraText">
 
     <com.jkb.slidemenu.SlideMenuLayout
@@ -21,38 +22,47 @@
 
     <include layout="@layout/toolbar_layout"/>
 
-    <Button
-        android:id="@+id/btnTakePhoto"
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="152dp"
-        android:text="@string/camera" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp">
 
-    <Button
-        android:id="@+id/btnSelectPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/repair_title"
-        android:layout_alignTop="@+id/btnTakePhoto"
-        android:text="@string/album" />
+        <Button
+            android:id="@+id/btnTakePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="152dp"
+            android:text="@string/camera" />
 
-    <Button
-        android:id="@+id/getResButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/repair_title"
-        android:layout_alignTop="@+id/btnTakePhoto"
-        android:text="@string/get_result" />
+        <Button
+            android:id="@+id/btnSelectPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/repair_title"
+            android:layout_alignTop="@+id/btnTakePhoto"
+            android:text="@string/album" />
 
-    <Button
-        android:id="@+id/getHistoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnTakePhoto"
-        android:text="@string/history" />
+        <Button
+            android:id="@+id/getResButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/repair_title"
+            android:layout_alignTop="@+id/btnTakePhoto"
+            android:text="@string/get_result" />
+
+        <Button
+            android:id="@+id/getHistoryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btnTakePhoto"
+            android:text="@string/history" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <TextView
         android:layout_width="wrap_content"

@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ADD8E6"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,6 +13,9 @@
         android:layout_height="495dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="64dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"/>
+
+
+
 
 </android.support.constraint.ConstraintLayout>

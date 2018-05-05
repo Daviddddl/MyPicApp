@@ -43,7 +43,6 @@
             android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".activity.HelpActivity" />
-        <activity android:name=".activity.DBTestActivity" />
         <activity
             android:name=".activity.MyLoginActivity"
             android:label="RegistAndLogin" />

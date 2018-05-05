@@ -170,19 +170,19 @@ public class UploadActivity extends AppCompatActivity {
                 // 3、下载结果
                 // 需要配置路径
 
-                progressDialog.setMessage("下载中...");
-                showProcessDialog();
+                /*progressDialog.setMessage("下载中...");
+                showProcessDialog();*/
                 Toast.makeText(getApplicationContext(), "下载成功！", Toast.LENGTH_SHORT).show();
 
                 downLoad(remotePath,fileName);
                 loadImage(fileName);
 
-                handler.postDelayed(new Runnable() {
+                /*handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 3000);*/
 
             }
         });

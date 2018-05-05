@@ -144,4 +144,6 @@
     <string name="name">全名</string>
     <string name="up_button">提升权限</string>
     <string name="main_button">主界面</string>
+    <string name="register_title">欢迎注册账户</string>
+    <string name="login_title">欢迎登录账户</string>
 </resources>

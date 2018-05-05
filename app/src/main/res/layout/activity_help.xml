@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
+    android:background="#ADD8E6"
     tools:ignore="ExtraText">
 
     <com.jkb.slidemenu.SlideMenuLayout

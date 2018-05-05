@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:background="#01000000">
+    android:background="#ADD8E6"
+    android:fitsSystemWindows="true">
 
     <include layout="@layout/toolbar_layout" />
 
@@ -69,6 +69,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/main_frag_func1"
         android:layout_marginTop="120dp"
+        android:textColor="#D2691E"
         android:text="@string/repair" />
 
     <TextView
@@ -77,6 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/main_frag_func2"
         android:layout_alignTop="@+id/repair"
+        android:textColor="#D2691E"
         android:text="@string/identify" />
 
     <TextView
@@ -86,6 +88,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/main_frag_func1"
         android:layout_marginBottom="250dp"
+        android:textColor="#D2691E"
         android:text="@string/imitate" />
 
     <TextView
@@ -94,30 +97,45 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/identify"
         android:layout_alignTop="@+id/imitate"
+        android:textColor="#D2691E"
         android:text="@string/manufacture" />
 
-    <Button
-        android:id="@+id/setting"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/main_frag_func1"
-        android:text="设置" />
+        android:layout_alignParentStart="true">
 
-    <Button
-        android:id="@+id/help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/main_frag_func2"
-        android:layout_alignParentBottom="true"
-        android:text="帮助" />
+        <Button
+            android:id="@+id/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/main_frag_func1"
+            android:layout_weight="1"
+            android:background="#98FB90"
+            android:text="设置" />
 
-    <Button
-        android:id="@+id/btn_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="我的" />
+        <Button
+            android:id="@+id/help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/main_frag_func2"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="#90EE90"
+            android:text="帮助" />
+
+        <Button
+            android:id="@+id/btn_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="#98FB98"
+            android:text="我的" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
 
 </RelativeLayout>
