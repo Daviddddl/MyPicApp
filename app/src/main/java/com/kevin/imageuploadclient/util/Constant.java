@@ -3,8 +3,8 @@ package com.kevin.imageuploadclient.util;
 public class Constant {
 
     /** 服务器基地址 */
-    public static final String BASE_URL = "http://172.20.94.150:8080";
-
+    public static final String BASE_URL = "http://172.20.95.148:8080";  //HIT-WLAN
+    //public static final String BASE_URL = "http://192.168.43.25:8080";  //我的热点
     public static final String ROOT_EMAIL = "root@test.com";
     public static final String ROOT_PWD = "root123";
 

@@ -6,7 +6,6 @@ import android.content.SharedPreferences.Editor;
 
 /**
  * 用于管理用户的登陆状态
- * Created by shuo on 2015/4/8.
  */
 public class SessionManager {
     private static String TAG = SessionManager.class.getSimpleName();
