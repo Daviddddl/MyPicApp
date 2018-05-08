@@ -46,10 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailInput = (EditText) findViewById(R.id.emailInput);//email输入框
-        passwordInput = (EditText) findViewById(R.id.passwordInput);//密码输入框
-        loginButton = (Button) findViewById(R.id.loginButton);//登陆按钮
-        linkToRegisterButton = (Button) findViewById(R.id.linkToRegisterScreenButton);//跳转到注册页面按钮
+        emailInput = findViewById(R.id.emailInput);//email输入框
+        passwordInput = findViewById(R.id.passwordInput);//密码输入框
+        loginButton = findViewById(R.id.loginButton);//登陆按钮
+        linkToRegisterButton = findViewById(R.id.linkToRegisterScreenButton);//跳转到注册页面按钮
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
         sessionManager = new SessionManager(getApplicationContext());//登陆状态管理
@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(String s) {
                 hideDialog();
-                JSONObject jsonObject = null;
+                JSONObject jsonObject;
                 try {
                     jsonObject = new JSONObject(s);
                     boolean error = jsonObject.getBoolean("error");

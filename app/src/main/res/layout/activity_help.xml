@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
-    android:background="#ADD8E6"
+    android:background="#FFFFFF"
     tools:ignore="ExtraText">
 
     <com.jkb.slidemenu.SlideMenuLayout
@@ -40,6 +40,16 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="160dp"
         android:text="@string/repair_label" />
+
+    <ImageView
+        android:id="@+id/action_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:src="@mipmap/back_true" />
 
     <ImageView
         android:id="@+id/history_item1"
@@ -133,5 +143,15 @@
         android:layout_alignTop="@+id/manufacture_help"
         android:text="此处时手写识别说明…………此处时手写识别说明…………此处时手写识别说明…………此处时手写识别说明…………" />
 
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/bottomNavigate"
+        app:itemTextColor="#000000"
+        app:menu="@menu/bottom_navigation_main"/>
 
 </RelativeLayout>

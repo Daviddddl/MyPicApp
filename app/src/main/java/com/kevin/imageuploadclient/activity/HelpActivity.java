@@ -1,14 +1,21 @@
 package com.kevin.imageuploadclient.activity;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.jkb.slidemenu.SlideMenuAction;
 import com.kevin.imageuploadclient.R;
+import com.kevin.imageuploadclient.fragment.basic.PictureSelectFragment;
 
 public class HelpActivity extends AppCompatActivity {
 
     private SlideMenuAction slideMenuAction;
+    BottomNavigationView buttomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +25,48 @@ public class HelpActivity extends AppCompatActivity {
         slideMenuAction = findViewById(R.id.mainSlideMenu);
         slideMenuAction.setSlideMode(SlideMenuAction.SLIDE_MODE_LEFT_RIGHT);
         slideMenuAction.setContentToggle(true);
+
+        buttomNavigationView = findViewById(R.id.bottom_navigation);
+
+        BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+                = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_help: {
+                        functionHelp();
+                        return true;
+                    }
+                    case R.id.action_main: {
+                        functionMain();
+                        return true;
+                    }
+                    case R.id.action_mine: {
+                        functionAccount();
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+        };
+
+        buttomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+    }
+
+    protected void functionMain(){
+        //Toast.makeText(this.getContext(), "点击了设置", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
+    protected void functionHelp(){
+        //Toast.makeText(this.getContext(), "点击了帮助", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+    }
+
+    protected void functionAccount(){
+        //Toast.makeText(this.getContext(), "点击了我的", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), UserDetailActivity.class));
     }
 }

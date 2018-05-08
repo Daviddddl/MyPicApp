@@ -4,22 +4,35 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="true"
-    android:background="#ADD8E6"
+    android:background="#FFFFFF"
     android:fitsSystemWindows="true">
 
     <include layout="@layout/toolbar_layout" />
 
-    <ImageView
+    <!--<com.example.circleimage.XCRoundImageView
+        android:id="@+id/portrait"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/xingkong" />-->
+
+
+    <com.kevin.imageuploadclient.util.RoundAngleImageView
         android:id="@+id/main_frag_func1"
-        android:layout_width="150dp"
-        android:layout_height="180dp"
+        app:roundWidth="50dp"
+        app:roundHeight="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/main_frag_func2"
         android:layout_marginStart="30dp"
-        android:src="@mipmap/repair" />
+        android:src="@mipmap/repair"
+        android:layout_height="180dp"
+        android:layout_width="150dp" />
 
-    <ImageView
+    <com.kevin.imageuploadclient.util.RoundAngleImageView
         android:id="@+id/main_frag_func2"
+        app:roundWidth="50dp"
+        app:roundHeight="50dp"
         android:layout_width="150dp"
         android:layout_height="180dp"
         android:layout_alignParentEnd="true"
@@ -28,18 +41,22 @@
         android:layout_marginTop="150dp"
         android:src="@mipmap/identify" />
 
-    <ImageView
+    <com.kevin.imageuploadclient.util.RoundAngleImageView
         android:id="@+id/main_frag_func3"
+        app:roundWidth="50dp"
+        app:roundHeight="50dp"
         android:layout_width="150dp"
         android:layout_height="180dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="100dp"
         android:src="@mipmap/imitate" />
 
-    <ImageView
+    <com.kevin.imageuploadclient.util.RoundAngleImageView
         android:id="@+id/main_frag_func4"
+        app:roundWidth="50dp"
+        app:roundHeight="50dp"
         android:layout_width="150dp"
         android:layout_height="180dp"
         android:layout_alignParentEnd="true"
@@ -47,7 +64,7 @@
         android:layout_alignTop="@+id/main_frag_func3"
         android:src="@mipmap/manufacture" />
 
-    <ImageView
+    <com.kevin.imageuploadclient.util.RoundAngleImageView
         android:id="@+id/main_frag_func5"
         android:layout_width="1dp"
         android:layout_height="1dp" />
@@ -67,30 +84,30 @@
         android:id="@+id/repair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/main_frag_func1"
-        android:layout_marginTop="120dp"
-        android:textColor="#D2691E"
-        android:text="@string/repair" />
+        android:layout_alignBottom="@+id/main_frag_func1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:text="@string/repair"
+        android:textColor="#D2691E" />
 
     <TextView
         android:id="@+id/identify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/main_frag_func2"
-        android:layout_alignTop="@+id/repair"
-        android:textColor="#D2691E"
-        android:text="@string/identify" />
+        android:layout_alignBottom="@+id/main_frag_func1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="80dp"
+        android:text="@string/identify"
+        android:textColor="#D2691E" />
 
     <TextView
         android:id="@+id/imitate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/main_frag_func1"
-        android:layout_marginBottom="250dp"
-        android:textColor="#D2691E"
-        android:text="@string/imitate" />
+        android:layout_alignBottom="@+id/main_frag_func3"
+        android:layout_alignStart="@+id/repair"
+        android:text="@string/imitate"
+        android:textColor="#D2691E" />
 
     <TextView
         android:id="@+id/manufacture"
@@ -107,48 +124,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/bottom_navigation"
-        app:itemBackground="@color/colorAccent"
-        app:itemTextColor="@color/white"
+        app:itemBackground="@color/bottomNavigate"
+        app:itemTextColor="#000000"
         app:menu="@menu/bottom_navigation_main"/>
-
-    <!--<android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
-
-        <Button
-            android:id="@+id/setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/main_frag_func1"
-            android:layout_weight="1"
-            android:background="#98FB90"
-            android:text="设置" />
-
-        <Button
-            android:id="@+id/help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/main_frag_func2"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            android:background="#90EE90"
-            android:text="帮助" />
-
-        <Button
-            android:id="@+id/btn_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:background="#98FB98"
-            android:text="我的" />
-
-    </android.support.v7.widget.LinearLayoutCompat>-->
-
-
 
 </RelativeLayout>

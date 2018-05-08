@@ -51,15 +51,6 @@ public class MainFragment extends PictureSelectFragment {
     @Bind(R.id.main_frag_func5)
     ImageView mPictureFunc5;
 
-    /*@Bind(R.id.action_main)
-    BottomNavigationView mBtnSetting;
-
-    @Bind(R.id.action_help)
-    BottomNavigationView mBtnHelp;
-
-    @Bind(R.id.action_mine)
-    BottomNavigationView mBtnAccount;*/
-
     @Bind(R.id.bottom_navigation)
     BottomNavigationView buttomNavigationView;
 
@@ -80,14 +71,6 @@ public class MainFragment extends PictureSelectFragment {
 
     @Override
     public void initEvents() {
-        // 设置图片点击监听
-        /*mPictureFunc1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectPicture();
-            }
-        });*/
-
 
         mPictureFunc1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,28 +116,6 @@ public class MainFragment extends PictureSelectFragment {
             }
         });
 
-
-        /*mBtnSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                functionSetting();
-            }
-        });
-
-        mBtnHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                functionHelp();
-            }
-        });
-
-        mBtnAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                functionAccount();
-            }
-        });*/
-
         buttomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
@@ -169,7 +130,7 @@ public class MainFragment extends PictureSelectFragment {
                     return true;
                 }
                 case R.id.action_main: {
-                    functionBasic();
+                    functionMain();
                     return true;
                 }
                 case R.id.action_mine: {

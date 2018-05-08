@@ -6,7 +6,7 @@
     <string name="permission_title_rationale">权限需求</string>
     <string name="permission_read_storage_rationale">选择图片时需要读取权限</string>
     <string name="permission_write_storage_rationale">拍照时需要存储权限</string>
-    <string name="app_title">汉字修复大师</string>
+    <string name="app_title">汉字风格大师</string>
     <string name="history_title">历史记录</string>
     <string name="upload">上传图片</string>
     <string name="download">获取结果</string>
@@ -140,7 +140,7 @@
     <string name="btn_link_to_register">没有账号? 立刻注册.</string>
     <string name="btn_link_to_login">已经注册! 点此登录.</string>
     <string name="welcome">欢迎使用本应用！</string>
-    <string name="btn_logout">退出</string>
+    <string name="btn_logout">退出登陆</string>
     <string name="name">全名</string>
     <string name="up_button">提升权限</string>
     <string name="main_button">主界面</string>

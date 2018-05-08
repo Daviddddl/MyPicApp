@@ -2,7 +2,10 @@ package com.kevin.imageuploadclient.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,9 +22,11 @@ public class UserDetailActivity extends AppCompatActivity {
     private TextView upView;
     private Button logoutButton;
     private Button upButton;
-    private Button mainButton;
     private SQLiteManager sqLiteManager;
     private SessionManager sessionManager;
+    BottomNavigationView buttomNavigationView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,6 @@ public class UserDetailActivity extends AppCompatActivity {
         upView = findViewById(R.id.upView);
         logoutButton = findViewById(R.id.logoutButton);
         upButton = findViewById(R.id.upButton);
-        mainButton = findViewById(R.id.mainButton);
 
         if (!sessionManager.isLoggedIn()) {
             logoutUser();
@@ -53,16 +57,49 @@ public class UserDetailActivity extends AppCompatActivity {
                 upAuthority();
             }
         });
-        mainButton.setOnClickListener(new View.OnClickListener() {
+        
+        buttomNavigationView = findViewById(R.id.bottom_navigation);
+
+        BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+                = new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                backToMain();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_help: {
+                        functionHelp();
+                        return true;
+                    }
+                    case R.id.action_main: {
+                        functionMain();
+                        return true;
+                    }
+                    case R.id.action_mine: {
+                        functionAccount();
+                        return true;
+                    }
+                }
+                return false;
             }
-        });
+
+        };
+
+        buttomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 
-    private void backToMain(){
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+    protected void functionMain(){
+        //Toast.makeText(this.getContext(), "点击了设置", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
+    protected void functionHelp(){
+        //Toast.makeText(this.getContext(), "点击了帮助", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+    }
+
+    protected void functionAccount(){
+        //Toast.makeText(this.getContext(), "点击了我的", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), UserDetailActivity.class));
     }
 
     private void upAuthority(){

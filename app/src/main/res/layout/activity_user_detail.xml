@@ -2,9 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ADD8E6">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF">
 
     <include layout="@layout/toolbar_layout" />
+
+    <ImageView
+        android:id="@+id/action_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:src="@mipmap/back_true" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -16,8 +28,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textSize="20dp" />
+            android:layout_marginTop="70dp"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="@string/welcome"/>
 
         <TextView
             android:id="@+id/nameView"
@@ -25,48 +39,54 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="@color/lbl_name"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/emailView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13dp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/upView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13dp" />
-
-        <Button
-            android:id="@+id/mainButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dip"
-            android:text="@string/main_button"
-            android:textAllCaps="false"
-            android:background="#90EE90"
-            android:textSize="15dp" />
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/upButton"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
             android:text="@string/up_button"
-            android:textAllCaps="false"
-            android:background="#90EE90"
-            android:textSize="15dp" />
+            android:elevation="0dp"
+            android:padding="12dp"
+            android:background="@drawable/button_login"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
         <Button
             android:id="@+id/logoutButton"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
-            android:background="@color/btn_logut_bg"
             android:text="@string/btn_logout"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:elevation="0dp"
+            android:padding="12dp"
+            android:background="@drawable/button_login"
+            android:textColor="#8B008B"
+            android:textSize="18sp" />
     </LinearLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/bottomNavigate"
+        app:itemTextColor="#000000"
+        app:menu="@menu/bottom_navigation_main"/>
+
+
 </RelativeLayout>
