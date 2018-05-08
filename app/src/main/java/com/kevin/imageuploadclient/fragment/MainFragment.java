@@ -1,10 +1,14 @@
 package com.kevin.imageuploadclient.fragment;
 
+import android.content.ClipData;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -47,14 +51,18 @@ public class MainFragment extends PictureSelectFragment {
     @Bind(R.id.main_frag_func5)
     ImageView mPictureFunc5;
 
-    @Bind(R.id.setting)
-    Button mBtnSetting;
+    /*@Bind(R.id.action_main)
+    BottomNavigationView mBtnSetting;
 
-    @Bind(R.id.help)
-    Button mBtnHelp;
+    @Bind(R.id.action_help)
+    BottomNavigationView mBtnHelp;
 
-    @Bind(R.id.btn_account)
-    Button mBtnAccount;
+    @Bind(R.id.action_mine)
+    BottomNavigationView mBtnAccount;*/
+
+    @Bind(R.id.bottom_navigation)
+    BottomNavigationView buttomNavigationView;
+
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -79,6 +87,7 @@ public class MainFragment extends PictureSelectFragment {
                 selectPicture();
             }
         });*/
+
 
         mPictureFunc1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +134,7 @@ public class MainFragment extends PictureSelectFragment {
         });
 
 
-        mBtnSetting.setOnClickListener(new View.OnClickListener() {
+        /*mBtnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 functionSetting();
@@ -144,9 +153,34 @@ public class MainFragment extends PictureSelectFragment {
             public void onClick(View v) {
                 functionAccount();
             }
-        });
+        });*/
+
+        buttomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.action_help: {
+                    functionHelp();
+                    return true;
+                }
+                case R.id.action_main: {
+                    functionBasic();
+                    return true;
+                }
+                case R.id.action_mine: {
+                    functionAccount();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    };
 
     /**
      * 上传图片

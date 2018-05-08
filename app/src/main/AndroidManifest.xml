@@ -51,9 +51,13 @@
             android:label="RegistAndLogin" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.UserDetailActivity" />
-
-
-
+        <activity
+            android:name=".activity.BasicActivity"
+            android:label="@string/title_activity_basic"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.ButtomNaviActivity"
+            android:label="@string/title_activity_buttom_navi"></activity>
     </application>
 
 </manifest>

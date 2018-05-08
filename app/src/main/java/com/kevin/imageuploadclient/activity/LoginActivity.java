@@ -63,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new loginOnClickListener());
         linkToRegisterButton.setOnClickListener(new linkToRegisterOnClickListener());
 
-
     }
 
     //登陆按钮点击操作

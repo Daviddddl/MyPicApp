@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="true"
     android:background="#ADD8E6"
     android:fitsSystemWindows="true">
@@ -100,7 +101,17 @@
         android:textColor="#D2691E"
         android:text="@string/manufacture" />
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorAccent"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_navigation_main"/>
+
+    <!--<android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -136,6 +147,8 @@
             android:background="#98FB98"
             android:text="我的" />
 
-    </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.LinearLayoutCompat>-->
+
+
 
 </RelativeLayout>

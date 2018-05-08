@@ -146,4 +146,12 @@
     <string name="main_button">主界面</string>
     <string name="register_title">欢迎注册账户</string>
     <string name="login_title">欢迎登录账户</string>
+    <string name="text_main">主页</string>
+    <string name="text_help">帮助</string>
+    <string name="text_mine">我的</string>
+    <string name="title_activity_basic">BasicActivity</string>
+    <string name="title_activity_buttom_navi">ButtomNaviActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
