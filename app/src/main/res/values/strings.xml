@@ -154,4 +154,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="possible_res">可能的结果：</string>
 </resources>

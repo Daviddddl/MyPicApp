@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
-    android:background="#ADD8E6"
+    android:background="#FFFFFF"
     tools:ignore="ExtraText">
 
     <include layout="@layout/toolbar_layout" />

@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp">
+        android:layout_marginBottom="0dp">
 
         <Button
             android:id="@+id/btnTakePhoto"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="152dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/camera" />
 
         <Button
@@ -74,12 +74,7 @@
 
     </android.support.v7.widget.LinearLayoutCompat>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="@string/pic_path" />
-
-    <TextView
+    <!--<TextView
         android:id="@+id/tvPath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +98,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="115dp"
-        android:text="@string/tvuri" />
+        android:text="@string/tvuri" />-->
 
     <ImageView
         android:id="@+id/ivPic"
@@ -111,8 +106,17 @@
         android:layout_height="210dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
+        android:layout_marginTop="130dp"
         android:src="@mipmap/default_select_photo" />
+
+    <TextView
+        android:id="@+id/possible_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/action_back"
+        android:layout_marginBottom="190dp"
+        android:text="@string/possible_res" />
 
     <TextView
         android:id="@+id/repair_title"
@@ -124,5 +128,39 @@
         android:textStyle="bold"
         android:textSize="30sp"
         android:text="@string/repair_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="85dp">
+
+        <ImageView
+            android:id="@+id/res1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="100dp"
+            android:src="@mipmap/default_select_photo" />
+
+        <ImageView
+            android:id="@+id/res2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="100dp"
+            android:src="@mipmap/default_select_photo" />
+
+        <ImageView
+            android:id="@+id/res3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="100dp"
+            android:src="@mipmap/default_select_photo" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
