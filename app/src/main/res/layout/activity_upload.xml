@@ -136,30 +136,44 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="85dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/res1"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginBottom="100dp"
-            android:src="@mipmap/default_select_photo" />
+            android:text="1"
+            android:textColor="@color/red"
+            android:textAlignment="center"
+            android:textSize="80sp"/>
 
-        <ImageView
+        <TextView
             android:id="@+id/res2"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginBottom="100dp"
-            android:src="@mipmap/default_select_photo" />
+            android:text="2"
+            android:textColor="@color/red"
+            android:textAlignment="center"
+            android:textSize="80sp"/>
 
-        <ImageView
+        <TextView
             android:id="@+id/res3"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginBottom="100dp"
-            android:src="@mipmap/default_select_photo" />
+            android:text="3"
+            android:textColor="@color/red"
+            android:textAlignment="center"
+            android:textSize="80sp"/>
 
+        <EditText
+            android:id="@+id/my_res"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/red"
+            android:textAlignment="center"
+            android:textSize="60sp"/>
 
     </LinearLayout>
 

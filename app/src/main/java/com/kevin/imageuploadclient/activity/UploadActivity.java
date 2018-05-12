@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import kr.co.namee.permissiongen.PermissionFail;
@@ -57,7 +59,7 @@ public class UploadActivity extends AppCompatActivity {
     // 根据部署环境设置文件路径
     //static String remotePath = Constant.BASE_URL + "/ImageUploadServer_war/files/images/caffeRes.png";
     static String remotePath = Constant.BASE_URL + "/files/images/caffeRes.jpg";  // 本地测试
-    static String fileName = "caffeRes01.jpg";
+    static String fileName = "caffeRes";
 
     private Button mBtnTakePhoto;
     private Button mBtnSelectPhoto;
@@ -70,6 +72,12 @@ public class UploadActivity extends AppCompatActivity {
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
     private ImageView mIvPic;
 
+    private TextView mRes1;
+    private TextView mRes2;
+    private TextView mRes3;
+    private EditText myEditRes;
+
+
     private SlideMenuAction slideMenuAction;
 
     @Override
@@ -80,9 +88,11 @@ public class UploadActivity extends AppCompatActivity {
         mBtnSelectPhoto = findViewById(R.id.btnSelectPhoto);
         mBtnGetRes = findViewById(R.id.getResButton);
         mBtnGetHistory = findViewById(R.id.getHistoryButton);
-        mTvPath = findViewById(R.id.tvPath);
-        mTvUri = findViewById(R.id.tvUri);
         mIvPic = findViewById(R.id.ivPic);
+        mRes1 = findViewById(R.id.res1);
+        mRes2 = findViewById(R.id.res2);
+        mRes3 = findViewById(R.id.res3);
+        myEditRes = findViewById(R.id.my_res);
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
 
@@ -170,19 +180,23 @@ public class UploadActivity extends AppCompatActivity {
                 // 3、下载结果
                 // 需要配置路径
 
-                /*progressDialog.setMessage("下载中...");
-                showProcessDialog();*/
-                Toast.makeText(getApplicationContext(), "下载成功！", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "下载成功！", Toast.LENGTH_SHORT).show();
 
-                downLoad(remotePath,fileName);
-                loadImage(fileName);
+                //downLoad(remotePath,fileName);
+                //loadImage(fileName);
 
-                /*handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        hideProcessDialog();
-                    }
-                }, 3000);*/
+                ArrayList<String> result = getResult();
+
+                // 此处要调用服务器获取结果
+                result.add("你");
+                result.add("吗");
+                result.add("嗨");
+
+
+                mRes1.setText(result.get(0));
+                mRes2.setText(result.get(1));
+                mRes3.setText(result.get(2));
+
 
             }
         });
@@ -192,6 +206,36 @@ public class UploadActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 4、历史记录
                 startActivity(new Intent(getApplicationContext(),HistoryActivity.class));
+            }
+        });
+
+        mRes1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 下载结果图片
+                Toast.makeText(getApplicationContext(), "结果1下载成功！", Toast.LENGTH_SHORT).show();
+                downLoad(remotePath,fileName+"01.jpg");
+                loadImage(fileName+"01.jpg");
+            }
+        });
+
+        mRes2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 下载结果图片
+                Toast.makeText(getApplicationContext(), "结果2下载成功！", Toast.LENGTH_SHORT).show();
+                downLoad(remotePath,fileName+"02.jpg");
+                loadImage(fileName+"02.jpg");
+            }
+        });
+
+        mRes3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 下载结果图片
+                Toast.makeText(getApplicationContext(), "结果3下载成功！", Toast.LENGTH_SHORT).show();
+                downLoad(remotePath,fileName+"03.jpg");
+                loadImage(fileName+"03.jpg");
             }
         });
     }
@@ -339,6 +383,14 @@ public class UploadActivity extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+
+    public static ArrayList<String> getResult(){
+        ArrayList<String> res = new ArrayList<>();
+
+
+        return res;
     }
 
 
