@@ -28,6 +28,7 @@ import com.kevin.imageuploadclient.activity.MainActivity;
 import com.kevin.imageuploadclient.activity.ManuFactureActivity;
 import com.kevin.imageuploadclient.activity.SettingsActivity;
 import com.kevin.imageuploadclient.activity.UploadActivity;
+import com.kevin.imageuploadclient.activity.UploadTestActivity;
 import com.kevin.imageuploadclient.activity.UserDetailActivity;
 import com.kevin.imageuploadclient.util.Constant;
 import com.kevin.imageuploadclient.util.FileUtils;
@@ -63,7 +64,7 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
 
     protected void function1(){
         if (Constant.IS_ROOT)
-            startActivity(new Intent(this.getContext(),UploadActivity.class));
+            startActivity(new Intent(this.getContext(),UploadTestActivity.class));
         else
             Toast.makeText(this.getContext(), "抱歉，您没有权限！", Toast.LENGTH_SHORT).show();
     }

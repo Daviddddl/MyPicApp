@@ -51,6 +51,8 @@
         <activity
             android:name=".activity.ButtomNaviActivity"
             android:label="@string/title_activity_buttom_navi" />
+        <activity android:name=".activity.UploadTestActivity" />
+        <activity android:name=".activity.ResultActivity"></activity>
     </application>
 
 </manifest>

@@ -155,4 +155,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="possible_res">可能的结果：</string>
+    <string name="possible_res1">结果1</string>
+    <string name="possible_res2">结果2</string>
+    <string name="possible_res3">结果3</string>
 </resources>

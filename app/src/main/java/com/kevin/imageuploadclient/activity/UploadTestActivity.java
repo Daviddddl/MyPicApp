@@ -1,38 +1,32 @@
 package com.kevin.imageuploadclient.activity;
 
-import android.os.Bundle;
-import android.support.design.internal.BottomNavigationMenuView;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.basic.BaseActivity;
 import com.kevin.imageuploadclient.fragment.MainFragment;
+import com.kevin.imageuploadclient.fragment.UploadFragment;
 import com.kevin.imageuploadclient.fragment.basic.BaseFragment;
 
-
-public class MainActivity extends BaseActivity {
+public class UploadTestActivity extends BaseActivity {
 
     @Override
     protected void initContentView() {
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_upload_test);
     }
 
     @Override
     protected void initViews() {
-        initMainFragment();
+        initUploadFragment();
     }
 
-    /**
-     * 初始化内容Fragment
-     *
-     * @return void
-     */
-    public void initMainFragment() {
+    private void initUploadFragment() {
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        BaseFragment mFragment = MainFragment.newInstance();
-        transaction.replace(R.id.main_act_container, mFragment, mFragment.getFragmentName());
+        BaseFragment mFragment = UploadFragment.newInstance();
+        transaction.replace(R.id.upload_act_container, mFragment, mFragment.getFragmentName());
         transaction.commit();
     }
 
