@@ -8,6 +8,35 @@
     android:background="#FFFFFF"
     tools:ignore="ExtraText">
 
+    <ImageView
+        android:id="@+id/ivPic"
+        android:layout_width="261dp"
+        android:layout_height="210dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:src="@mipmap/default_select_photo" />
+
+    <TextView
+        android:id="@+id/remoteRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="380dp"
+        android:text="@string/string_getRes" />
+
+    <TextView
+        android:id="@+id/myRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="380dp"
+        android:text="@string/string_inputRes" />
+
     <include layout="@layout/toolbar_layout" />
 
     <ImageView
@@ -36,12 +65,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="181dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="400dp"
         tools:ignore="UselessParent">
 
         <RadioButton
-            android:id="@+id/res1"
+            android:id="@+id/resTxt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,7 +78,7 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/res2"
+            android:id="@+id/resTxt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -57,7 +86,7 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/res3"
+            android:id="@+id/resTxt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,10 +96,45 @@
     </RadioGroup>
 
     <EditText
+        android:id="@+id/myNewRes"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/myRes"
+        android:textSize="40sp"
+        android:textColor="@color/red"
+        android:layout_marginTop="410dp"
+        />
+
+    <TextView
+        android:id="@+id/style_title"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/string_style" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_marginStart="180dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/style_spinner"
+        android:entries="@array/style_arr"
+        />
+
+    <Button
+        android:id="@+id/getResPicBtn"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="223dp" />
+        android:layout_marginBottom="30dp"
+        android:background="#ea4c88"
+        android:text="@string/get_result"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

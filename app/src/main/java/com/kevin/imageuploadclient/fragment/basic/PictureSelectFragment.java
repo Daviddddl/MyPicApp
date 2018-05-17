@@ -42,6 +42,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+
+import static com.kevin.imageuploadclient.util.Constant.fileTxtName;
 
 public abstract class PictureSelectFragment extends BaseFragment implements SelectPicturePopupWindow.OnSelectedListener {
 
@@ -352,7 +355,7 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
     }
 
 
-    private void loadImage(String filename, ImageView imageView) {
+    public void loadImage(String filename, ImageView imageView) {
         String path = Environment.getExternalStorageDirectory().toString() + "/caffeRes";
         try {
             Bitmap bmp = BitmapFactory.decodeStream(new FileInputStream(new File(path, filename)));
@@ -361,4 +364,16 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
             e.printStackTrace();
         }
     }
+
+    public String[] loadTxt(){
+        String path = Environment.getExternalStorageDirectory().toString() + "/caffeRes";
+        try {
+            String res = FileUtils.readFile(path+"/"+fileTxtName+".txt");
+            return res.split(";");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

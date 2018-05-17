@@ -68,13 +68,21 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <Spinner
+        android:id="@+id/style_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:entries="@array/style_arr" />
+
     <Button
         android:id="@+id/imitate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="226dp"
+        android:layout_marginTop="300dp"
         android:background="#90EE90"
         android:text="@string/imitate_button" />
 

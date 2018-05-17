@@ -158,4 +158,8 @@
     <string name="possible_res1">结果1</string>
     <string name="possible_res2">结果2</string>
     <string name="possible_res3">结果3</string>
+    <string name="string_getRes">生成结果：</string>
+    <string name="string_inputRes">输入结果：</string>
+    <string name="string_style">选择风格：</string>
+    <string name="identify_result_text">笔迹鉴定结果：</string>
 </resources>

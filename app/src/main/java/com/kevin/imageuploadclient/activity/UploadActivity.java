@@ -53,13 +53,11 @@ import kr.co.namee.permissiongen.PermissionFail;
 import kr.co.namee.permissiongen.PermissionGen;
 import kr.co.namee.permissiongen.PermissionSuccess;
 
+import static com.kevin.imageuploadclient.util.Constant.fileName;
+import static com.kevin.imageuploadclient.util.Constant.remotePath;
+
 
 public class UploadActivity extends AppCompatActivity {
-
-    // 根据部署环境设置文件路径
-    //static String remotePath = Constant.BASE_URL + "/ImageUploadServer_war/files/images/caffeRes.png";
-    static String remotePath = Constant.BASE_URL + "/files/images/caffeRes.jpg";  // 本地测试
-    static String fileName = "caffeRes";
 
     private Button mBtnTakePhoto;
     private Button mBtnSelectPhoto;
@@ -388,7 +386,6 @@ public class UploadActivity extends AppCompatActivity {
 
     public static ArrayList<String> getResult(){
         ArrayList<String> res = new ArrayList<>();
-
 
         return res;
     }

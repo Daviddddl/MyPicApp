@@ -7,4 +7,15 @@ public class Constant {
 
     public static boolean IS_ROOT = false;
 
+    public static String res1 = "你";
+    public static String res2 = "好";
+    public static String res3 = "啊";
+
+    //static String remotePath = Constant.BASE_URL + "/ImageUploadServer_war/files/images/caffeRes.png";
+    public static String remotePath = Constant.BASE_URL + "/files/images/caffeRes.jpg";  // 本地测试
+    public static String remoteTxtPath = Constant.BASE_URL + "/files/images/caffeTxtRes.txt";  // 本地测试
+    public static String fileName = "caffeRes";
+    public static String fileTxtName = "caffeTxtRes";
+
+    public static String urlRes = "Url Result!";
 }
