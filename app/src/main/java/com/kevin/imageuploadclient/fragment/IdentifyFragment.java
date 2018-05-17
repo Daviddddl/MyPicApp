@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -46,7 +47,7 @@ public class IdentifyFragment extends PictureSelectFragment {
 
     private Handler handler = new Handler();
 
-    @Bind(R.id.identify_input_pic)
+    @Bind(R.id.identify_input_pic1)
     ImageView identify_input_pic1;
 
     @Bind(R.id.identify_input_pic2)
@@ -55,11 +56,11 @@ public class IdentifyFragment extends PictureSelectFragment {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.getManuResButton)
-    Button mBtnManuGet;
+    @Bind(R.id.getIdentifyResButton)
+    Button mBtnIdentifyGet;
 
-    @Bind(R.id.manuRes)
-    Button mTvManuRes;
+    @Bind(R.id.identifyRes)
+    TextView mTvIDentifyRes;
 
     @Override
     public void onAttach(Activity activity) {
@@ -96,11 +97,11 @@ public class IdentifyFragment extends PictureSelectFragment {
             }
         });
 
-        mBtnManuGet.setOnClickListener(new View.OnClickListener() {
+        mBtnIdentifyGet.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                mTvManuRes.setText("相似度为" + "123");
+                mTvIDentifyRes.setText("相似度为" + "123");
             }
         });
 
@@ -150,7 +151,8 @@ public class IdentifyFragment extends PictureSelectFragment {
      * @param imagePath
      */
     private void uploadImage(String imagePath) {
-        new IdentifyFragment.NetworkTask().execute(imagePath);    }
+        new IdentifyFragment.NetworkTask().execute(imagePath);
+    }
 
     /**
      * 访问网络AsyncTask,访问网络在子线程进行并返回主线程通知访问的结果

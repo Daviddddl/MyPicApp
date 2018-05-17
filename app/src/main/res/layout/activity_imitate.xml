@@ -61,10 +61,9 @@
             android:id="@+id/imitate_input_text"
             android:layout_width="230dp"
             android:layout_height="match_parent"
-            android:hint="@string/imitate_hint"
             android:padding="10dp"
             android:singleLine="false"
-            android:background="@color/white" />
+            android:background="@color/grey" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -83,8 +82,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-        android:background="#90EE90"
-        android:text="@string/imitate_button" />
+        android:background="@drawable/button_login"
+        android:elevation="0dp"
+        android:padding="12dp"
+        android:text="@string/get_result"
+        android:textColor="#8B008B"
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

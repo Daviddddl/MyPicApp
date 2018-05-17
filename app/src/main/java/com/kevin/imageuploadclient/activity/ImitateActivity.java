@@ -38,8 +38,7 @@ public class ImitateActivity extends AppCompatActivity {
                 String style = mStyle_spinner.getSelectedItem().toString();
 
                 //Toast.makeText(getApplicationContext(), "开始获取风格模仿结果……", Toast.LENGTH_SHORT).show();
-                //开始获取风格模仿的结果
-
+                // 开始获取风格模仿的结果
 
 
 

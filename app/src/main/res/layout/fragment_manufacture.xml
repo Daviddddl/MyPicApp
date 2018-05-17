@@ -62,13 +62,13 @@
         android:id="@+id/identify_result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="420dp"
         android:layout_marginStart="30dp"
         android:text="@string/manufacture_result_text" />
 
     <TextView
-        android:id="@+id/identifyManuRes"
+        android:id="@+id/manuRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

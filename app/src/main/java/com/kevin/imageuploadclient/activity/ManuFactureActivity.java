@@ -23,7 +23,6 @@ public class ManuFactureActivity extends BaseActivity {
     }
 
     private void initUploadFragment() {
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         BaseFragment mFragment = ManufactureFragment.newInstance();
         transaction.replace(R.id.manu_act_container, mFragment, mFragment.getFragmentName());

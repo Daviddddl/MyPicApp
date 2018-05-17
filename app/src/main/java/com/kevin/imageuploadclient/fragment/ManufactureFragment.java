@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -52,11 +53,14 @@ public class ManufactureFragment extends PictureSelectFragment {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.getManuResButton)
+    @Bind(R.id.getManuResBtn)
     Button mBtnManuGet;
 
+    @Bind(R.id.uploadManuBtn)
+    Button mBtnUpManu;
+
     @Bind(R.id.manuRes)
-    Button mTvManuRes;
+    TextView mTvManuRes;
 
     @Override
     public void onAttach(Activity activity) {
@@ -80,6 +84,13 @@ public class ManufactureFragment extends PictureSelectFragment {
 
 
         mIvManuPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectPicture();
+            }
+        });
+
+        mBtnUpManu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectPicture();
