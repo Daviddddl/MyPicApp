@@ -84,8 +84,6 @@ public class ResultActivity extends AppCompatActivity {
                 String style = mSpinner.getSelectedItem().toString();
                 String input = mEditText.getText().toString();
 
-                Log.e("=-=-=-=-=", style+"==="+input+"==="+resId);
-
                 /**
                  * 获取请求
                  */
@@ -117,7 +115,7 @@ public class ResultActivity extends AppCompatActivity {
                                      runOnUiThread(new Runnable() {
                                          @Override
                                          public void run() {
-                                             Toast.makeText(getApplicationContext(), resBody, Toast.LENGTH_SHORT).show();
+                                             //Toast.makeText(getApplicationContext(), resBody, Toast.LENGTH_SHORT).show();
                                          }
                                      });
                                  }

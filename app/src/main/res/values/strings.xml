@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">汉字修复大师</string>
+    <string name="app_name">汉字修复</string>
 
     <string name="label_cancel">取消</string>
     <string name="label_ok">确定</string>
     <string name="permission_title_rationale">权限需求</string>
     <string name="permission_read_storage_rationale">选择图片时需要读取权限</string>
     <string name="permission_write_storage_rationale">拍照时需要存储权限</string>
-    <string name="app_title">汉字风格大师</string>
+    <string name="app_title">汉字风格</string>
     <string name="history_title">历史记录</string>
     <string name="upload">上传图片</string>
     <string name="download">获取结果</string>
@@ -26,10 +26,10 @@
     <string name="tvpath">tvPath:</string>
     <string name="image_uri">图片Uri：</string>
     <string name="tvuri">tvUri:</string>
-    <string name="repair_title">残损修复大师</string>
-    <string name="manufacture_title">手写识别大师</string>
-    <string name="identify_title">笔迹鉴定大师</string>
-    <string name="imitate_title">风格模仿大师</string>
+    <string name="repair_title">残损修复</string>
+    <string name="manufacture_title">手写识别</string>
+    <string name="identify_title">笔迹鉴定</string>
+    <string name="imitate_title">风格模仿</string>
     <string name="identify_result">笔迹鉴定结果：</string>
     <string name="identify_button">开始笔迹鉴定</string>
     <string name="imitate_input">风格模仿输入：</string>
