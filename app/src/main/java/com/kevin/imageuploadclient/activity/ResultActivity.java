@@ -23,6 +23,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -71,7 +73,7 @@ public class ResultActivity extends AppCompatActivity {
                 progressDialog.setMessage("获取结果中...");
 
                 // 上传选择的选项
-                String resId = "";
+                String resId=null;
                 if (mRBres1.isSelected())
                     resId = Constant.res1;
                 if (mRBres2.isSelected())
@@ -81,6 +83,8 @@ public class ResultActivity extends AppCompatActivity {
 
                 String style = mSpinner.getSelectedItem().toString();
                 String input = mEditText.getText().toString();
+
+                Log.e("=-=-=-=-=", style+"==="+input+"==="+resId);
 
                 /**
                  * 获取请求
@@ -121,8 +125,8 @@ public class ResultActivity extends AppCompatActivity {
 
 
                 showProcessDialog();
-                downLoad(remotePath,fileName+"_repair.jpg");
-                loadImage(fileName+"_repair.jpg");
+                downLoad(remotePath+fileName+"_repair.png",fileName+"_repair.png");
+                loadImage(fileName+"_repair.png");
 
 
                 handler.postDelayed(new Runnable() {

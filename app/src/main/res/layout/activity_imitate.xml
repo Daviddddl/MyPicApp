@@ -23,11 +23,11 @@
     <ImageView
         android:id="@+id/imitate_result"
         android:layout_width="240dp"
-        android:layout_height="150dp"
+        android:layout_height="260dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:src="@mipmap/func1" />
+        android:src="@mipmap/default_select_photo" />
 
     <TextView
         android:id="@+id/imitate_title"
