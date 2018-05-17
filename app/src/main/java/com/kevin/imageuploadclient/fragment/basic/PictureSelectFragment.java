@@ -72,22 +72,16 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
             Toast.makeText(this.getContext(), "抱歉，您没有权限！", Toast.LENGTH_SHORT).show();
     }
 
-    protected void function2(ImageView imageView){
-        /*Toast.makeText(this.getContext(), "开始下载服务器结果……", Toast.LENGTH_SHORT).show();
-
-        downLoad(Constant.BASE_URL+"files/images/3/10/123.jpeg","caffeRes01.jpeg");
-        loadImage("caffeRes01.jpeg",imageView);*/
+    protected void function2(){
         startActivity(new Intent(this.getContext(), IdentifyActivity.class));
     }
 
     protected void function3(){
-        //Toast.makeText(this.getContext(), "点击了function3", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this.getContext(),ImitateActivity.class));
 
     }
 
     protected void function4(){
-        //Toast.makeText(this.getContext(), "点击了function4", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this.getContext(),ManuFactureActivity.class));
     }
 

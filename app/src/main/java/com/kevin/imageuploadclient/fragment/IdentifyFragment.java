@@ -46,11 +46,11 @@ public class IdentifyFragment extends PictureSelectFragment {
 
     private Handler handler = new Handler();
 
-    @Bind(R.id.manufacture_input_pic)
-    ImageView manufacture_input_pic1;
+    @Bind(R.id.identify_input_pic)
+    ImageView identify_input_pic1;
 
-    @Bind(R.id.manufacture_input_pic2)
-    ImageView manufacture_input_pic2;
+    @Bind(R.id.identify_input_pic2)
+    ImageView identify_input_pic2;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -70,7 +70,7 @@ public class IdentifyFragment extends PictureSelectFragment {
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_upload;
+        return R.layout.fragment_identify;
     }
 
     @Override
@@ -82,14 +82,14 @@ public class IdentifyFragment extends PictureSelectFragment {
     public void initEvents() {
 
 
-        manufacture_input_pic1.setOnClickListener(new View.OnClickListener() {
+        identify_input_pic1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectPicture();
             }
         });
 
-        manufacture_input_pic2.setOnClickListener(new View.OnClickListener() {
+        identify_input_pic2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectPicture();
@@ -108,7 +108,7 @@ public class IdentifyFragment extends PictureSelectFragment {
         setOnPictureSelectedListener(new OnPictureSelectedListener() {
             @Override
             public void onPictureSelected(Uri fileUri, Bitmap bitmap) {
-                manufacture_input_pic1.setImageBitmap(bitmap);
+                identify_input_pic1.setImageBitmap(bitmap);
 
                 String filePath = fileUri.getEncodedPath();
                 final String imagePath = Uri.decode(filePath);
@@ -132,8 +132,8 @@ public class IdentifyFragment extends PictureSelectFragment {
 
     }
 
-    public static UploadFragment newInstance() {
-        return new UploadFragment();
+    public static IdentifyFragment newInstance() {
+        return new IdentifyFragment();
     }
 
 
@@ -173,7 +173,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                 Log.i(TAG, "图片地址 " + Constant.BASE_URL + result);
                 Glide.with(mContext)
                         .load(Constant.BASE_URL + result)
-                        .into(manufacture_input_pic1);
+                        .into(identify_input_pic1);
             }
         }
     }

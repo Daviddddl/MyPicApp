@@ -67,7 +67,7 @@ public class ManufactureFragment extends PictureSelectFragment {
 
     @Override
     protected int getContentViewId() {
-        return R.layout.fragment_upload;
+        return R.layout.fragment_manufacture;
     }
 
     @Override
@@ -122,8 +122,8 @@ public class ManufactureFragment extends PictureSelectFragment {
 
     }
 
-    public static UploadFragment newInstance() {
-        return new UploadFragment();
+    public static ManufactureFragment newInstance() {
+        return new ManufactureFragment();
     }
 
 

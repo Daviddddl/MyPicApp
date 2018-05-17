@@ -92,15 +92,13 @@ public class MainFragment extends PictureSelectFragment implements OnBannerListe
         mPictureFunc2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                function2(mPictureFunc2);
+                function2();
             }
         });
 
         mPictureFunc3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //selectPicture();
                 function3();
             }
         });
@@ -108,8 +106,7 @@ public class MainFragment extends PictureSelectFragment implements OnBannerListe
         mPictureFunc4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //function4();
-                selectPicture();
+                function4();
             }
         });
         // 设置裁剪图片结果监听

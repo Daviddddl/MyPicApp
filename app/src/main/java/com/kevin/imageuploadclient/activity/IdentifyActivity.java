@@ -1,92 +1,33 @@
 package com.kevin.imageuploadclient.activity;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.support.v4.app.FragmentTransaction;
 import com.kevin.imageuploadclient.R;
+import com.kevin.imageuploadclient.activity.basic.BaseActivity;
+import com.kevin.imageuploadclient.fragment.IdentifyFragment;
+import com.kevin.imageuploadclient.fragment.basic.BaseFragment;
 
-public class IdentifyActivity extends AppCompatActivity {
-
-    protected Button mBtnIdentify;
-    protected Button mBtnPic1Camera;
-    protected Button mBtnPic1Album;
-    protected Button mBtnPic2Camera;
-    protected Button mBtnPic2Album;
-    protected ImageView ivPic1;
-    protected ImageView ivPic2;
-    protected TextView tvIdentifyRes;
+public class IdentifyActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initContentView() {
         setContentView(R.layout.activity_identify);
-
-        mBtnIdentify = findViewById(R.id.identify_button);
-        mBtnPic1Album = findViewById(R.id.pic1_album);
-        mBtnPic2Album = findViewById(R.id.pic2_album);
-        mBtnPic1Camera = findViewById(R.id.pic1_camera);
-        mBtnPic2Camera = findViewById(R.id.pic2_camera);
-        ivPic1 = findViewById(R.id.pic1);
-        ivPic2 = findViewById(R.id.pic2);
-        tvIdentifyRes = findViewById(R.id.identify_result);
-
-
-        //各个button的点击方法
-        buttonActions();
-
     }
 
-    private void buttonActions() {
-        mBtnIdentify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "开始笔记鉴定……", Toast.LENGTH_SHORT).show();
-                //开始获取笔迹鉴定的结果
+    @Override
+    protected void initViews() {
+        initUploadFragment();
+    }
 
-            }
-        });
+    private void initUploadFragment() {
 
-        mBtnPic1Camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "图1拍照……", Toast.LENGTH_SHORT).show();
-                //开始获取笔迹鉴定的结果
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        BaseFragment mFragment = IdentifyFragment.newInstance();
+        transaction.replace(R.id.identify_act_container, mFragment, mFragment.getFragmentName());
+        transaction.commit();
+    }
 
-            }
-        });
-
-        mBtnPic1Album.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "图1相册……", Toast.LENGTH_SHORT).show();
-                //开始获取笔迹鉴定的结果
-
-            }
-        });
-
-        mBtnPic2Camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "图2拍照……", Toast.LENGTH_SHORT).show();
-                //开始获取笔迹鉴定的结果
-
-            }
-        });
-
-        mBtnPic2Album.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "图2相册……", Toast.LENGTH_SHORT).show();
-                //开始获取笔迹鉴定的结果
-
-            }
-        });
+    @Override
+    protected void initEvents() {
 
     }
 }
