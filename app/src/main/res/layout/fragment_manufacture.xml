@@ -26,7 +26,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
-        android:src="@mipmap/default_select_photo" />
+        android:src="@mipmap/manufacture01" />
 
     <TextView
         android:id="@+id/repair_title"
@@ -85,7 +85,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:textColor="@color/red"
-        android:text=""
+        android:text="
+        哈
+        尔
+        滨
+        大
+        学"
         android:textSize="20sp" />
 
 </RelativeLayout>
