@@ -10,7 +10,7 @@
     <include layout="@layout/toolbar_layout" />
 
     <ImageView
-        android:id="@+id/ivPic"
+        android:id="@+id/uploadRepairPic"
         android:layout_width="280dp"
         android:layout_height="280dp"
         android:layout_alignParentTop="true"

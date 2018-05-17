@@ -52,7 +52,7 @@ public class UploadFragment extends PictureSelectFragment {
 
     private Handler handler = new Handler();
 
-    @Bind(R.id.ivPic)
+    @Bind(R.id.uploadRepairPic)
     ImageView imageView;
 
     @Bind(R.id.toolbar)
@@ -183,7 +183,8 @@ public class UploadFragment extends PictureSelectFragment {
      * @param imagePath
      */
     private void uploadImage(String imagePath) {
-        new NetworkTask().execute(imagePath);    }
+        new NetworkTask().execute(imagePath);
+    }
 
     /**
      * 访问网络AsyncTask,访问网络在子线程进行并返回主线程通知访问的结果

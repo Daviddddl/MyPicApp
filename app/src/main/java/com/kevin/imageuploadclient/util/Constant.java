@@ -3,7 +3,7 @@ package com.kevin.imageuploadclient.util;
 public class Constant {
 
     /** 服务器基地址 */
-    public static final String BASE_URL = "http://172.20.10.4:8080";
+    public static final String BASE_URL = "http://172.20.47.118:8080";
 
     public static boolean IS_ROOT = false;
 
@@ -16,6 +16,4 @@ public class Constant {
     public static String remoteTxtPath = Constant.BASE_URL + "/files/images/caffeTxtRes.txt";  // 本地测试
     public static String fileName = "caffeRes";
     public static String fileTxtName = "caffeTxtRes";
-
-    public static String urlRes = "Url Result!";
 }

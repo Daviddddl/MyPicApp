@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,16 +18,21 @@ import android.widget.Toast;
 
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.util.Constant;
-import com.kevin.imageuploadclient.util.UrlUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static com.kevin.imageuploadclient.activity.UploadActivity.downLoad;
 import static com.kevin.imageuploadclient.util.Constant.fileName;
 import static com.kevin.imageuploadclient.util.Constant.remotePath;
-import static com.kevin.imageuploadclient.util.Constant.urlRes;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -78,17 +82,47 @@ public class ResultActivity extends AppCompatActivity {
                 String style = mSpinner.getSelectedItem().toString();
                 String input = mEditText.getText().toString();
 
-                try {
-                    new Thread(new UrlUtils("repair",style, resId, input, "12123")).start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                /**
+                 * 获取请求
+                 */
+                //1.okhttpClient对象
+                OkHttpClient okHttpClient = new OkHttpClient();
+                //2构造Request,
+                //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=repair&args1="+style+"&args2="+resId+"&args3="+input+"&args4=useless").build();
 
-                Log.e("!!!!!!!～～～",urlRes);
+                //3将Request封装成call
+                Call call = okHttpClient.newCall(request);
+
+                //4，执行call，这个方法是异步请求数据
+                call.enqueue(new Callback() {
+                                 @Override
+                                 public void onFailure(Call call, IOException e) {
+                                     //失败调用
+                                     Log.e("ResultActivity", "onFailure: ");
+                                 }
+
+                                 @Override
+                                 public void onResponse(Call call, final Response response) throws IOException {
+                                     //成功调用
+                                     Log.e("ResultActivity", "onResponse: ");
+                                     //获取网络访问返回的字符串
+                                     assert response.body() != null;
+                                     final String resBody = response.body().string();
+                                     runOnUiThread(new Runnable() {
+                                         @Override
+                                         public void run() {
+                                             Toast.makeText(getApplicationContext(), resBody, Toast.LENGTH_SHORT).show();
+                                         }
+                                     });
+                                 }
+                             });
+
+
                 showProcessDialog();
-                Toast.makeText(getApplicationContext(), urlRes, Toast.LENGTH_SHORT).show();
-                downLoad(remotePath,fileName+"01.jpg");
-                loadImage(fileName+"01.jpg");
+                downLoad(remotePath,fileName+"_repair.jpg");
+                loadImage(fileName+"_repair.jpg");
 
 
                 handler.postDelayed(new Runnable() {
