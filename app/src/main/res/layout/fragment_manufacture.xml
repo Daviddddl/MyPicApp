@@ -26,7 +26,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
-        android:src="@mipmap/manufacture01" />
+        android:src="@mipmap/default_select_photo" />
 
     <TextView
         android:id="@+id/repair_title"
@@ -40,7 +40,7 @@
         android:text="@string/manufacture_title" />
 
     <Button
-        android:id="@+id/uploadManuBtn"
+        android:id="@+id/getManuResBtn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -50,21 +50,21 @@
         android:background="@drawable/button_login"
         android:elevation="0dp"
         android:padding="12dp"
-        android:text="@string/upload"
+        android:text="单字识别"
         android:textColor="#8B008B"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/getManuResBtn"
+        android:id="@+id/getManuResBtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/uploadManuBtn"
+        android:layout_alignTop="@+id/getManuResBtn1"
         android:layout_marginEnd="70dp"
         android:background="@drawable/button_login"
         android:elevation="0dp"
         android:padding="12dp"
-        android:text="识别推理"
+        android:text="文本识别"
         android:textColor="#8B008B"
         android:textSize="18sp" />
 
@@ -85,12 +85,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:textColor="@color/red"
-        android:text="
-        哈
-        尔
-        滨
-        大
-        学"
+        android:text="手写识别结果"
         android:textSize="20sp" />
 
 </RelativeLayout>

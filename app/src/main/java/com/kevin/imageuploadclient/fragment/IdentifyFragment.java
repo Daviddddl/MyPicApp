@@ -87,6 +87,32 @@ public class IdentifyFragment extends PictureSelectFragment {
             @Override
             public void onClick(View v) {
                 selectPicture();
+
+
+                // 设置裁剪图片结果监听
+                setOnPictureSelectedListener(new OnPictureSelectedListener() {
+                    @Override
+                    public void onPictureSelected(Uri fileUri, Bitmap bitmap) {
+                        identify_input_pic1.setImageBitmap(bitmap);
+
+                        String filePath = fileUri.getEncodedPath();
+                        final String imagePath = Uri.decode(filePath);
+
+                        progressDialog.setMessage("上传中...");
+                        progressDialog.setCancelable(false);
+                        showProcessDialog();
+
+                        uploadImage(imagePath);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                hideProcessDialog();
+                            }
+                        }, 3000);
+
+                    }
+                });
             }
         });
 
@@ -94,6 +120,32 @@ public class IdentifyFragment extends PictureSelectFragment {
             @Override
             public void onClick(View v) {
                 selectPicture();
+
+
+                // 设置裁剪图片结果监听
+                setOnPictureSelectedListener(new OnPictureSelectedListener() {
+                    @Override
+                    public void onPictureSelected(Uri fileUri, Bitmap bitmap) {
+                        identify_input_pic2.setImageBitmap(bitmap);
+
+                        String filePath = fileUri.getEncodedPath();
+                        final String imagePath = Uri.decode(filePath);
+
+                        progressDialog.setMessage("上传中...");
+                        progressDialog.setCancelable(false);
+                        showProcessDialog();
+
+                        uploadImage(imagePath);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                hideProcessDialog();
+                            }
+                        }, 3000);
+
+                    }
+                });
             }
         });
 
@@ -101,35 +153,18 @@ public class IdentifyFragment extends PictureSelectFragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                mTvIDentifyRes.setText("相似度为" + "123");
-            }
-        });
-
-        // 设置裁剪图片结果监听
-        setOnPictureSelectedListener(new OnPictureSelectedListener() {
-            @Override
-            public void onPictureSelected(Uri fileUri, Bitmap bitmap) {
-                identify_input_pic1.setImageBitmap(bitmap);
-
-                String filePath = fileUri.getEncodedPath();
-                final String imagePath = Uri.decode(filePath);
-
-                progressDialog.setMessage("上传中...");
+                progressDialog.setMessage("识别中...");
                 progressDialog.setCancelable(false);
                 showProcessDialog();
-
-                uploadImage(imagePath);
-
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         hideProcessDialog();
                     }
                 }, 3000);
-
+                mTvIDentifyRes.setText("相似度：" + "0.998245");
             }
         });
-
 
     }
 

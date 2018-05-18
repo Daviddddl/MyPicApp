@@ -27,7 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:src="@mipmap/result02" />
+        android:src="@mipmap/default_select_photo" />
 
     <TextView
         android:id="@+id/imitate_title"

@@ -40,7 +40,7 @@ public class ImitateActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "开始获取风格模仿结果……", Toast.LENGTH_SHORT).show();
                 // 开始获取风格模仿的结果
 
-
+                ivImitateResult.setImageResource(R.mipmap.result02);
 
             }
         });

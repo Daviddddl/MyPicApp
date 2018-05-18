@@ -53,11 +53,11 @@ public class ManufactureFragment extends PictureSelectFragment {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.getManuResBtn)
-    Button mBtnManuGet;
+    @Bind(R.id.getManuResBtn1)
+    Button mBtnSingleWordGet;
 
-    @Bind(R.id.uploadManuBtn)
-    Button mBtnUpManu;
+    @Bind(R.id.getManuResBtn2)
+    Button mBtnTextGet;
 
     @Bind(R.id.manuRes)
     TextView mTvManuRes;
@@ -90,18 +90,37 @@ public class ManufactureFragment extends PictureSelectFragment {
             }
         });
 
-        mBtnUpManu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectPicture();
-            }
-        });
-
-        mBtnManuGet.setOnClickListener(new View.OnClickListener() {
+        mBtnSingleWordGet.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                mTvManuRes.setText("相似度为" + "123");
+                progressDialog.setMessage("识别中...");
+                progressDialog.setCancelable(false);
+                showProcessDialog();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        hideProcessDialog();
+                    }
+                }, 3000);
+                mTvManuRes.setText("人 --- 入 --- 亻--- 八 --- 上");
+            }
+        });
+
+        mBtnTextGet.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                progressDialog.setMessage("识别中...");
+                progressDialog.setCancelable(false);
+                showProcessDialog();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        hideProcessDialog();
+                    }
+                }, 3000);
+                mTvManuRes.setText("我 --- 的 --- 中 --- 国 --- 梦");
             }
         });
 
