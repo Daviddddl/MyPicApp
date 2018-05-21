@@ -115,8 +115,6 @@ public class ResultActivity extends AppCompatActivity {
                                      runOnUiThread(new Runnable() {
                                          @Override
                                          public void run() {
-                                             Log.e("=============",resBody);
-                                             Toast.makeText(getApplicationContext(), resBody, Toast.LENGTH_SHORT).show();
                                              //  此处进行step2 下载
                                              downLoad(remotePath+fileName+"_repair.png",fileName+"_repair.png");
                                              loadImage(fileName+"_repair.png");
@@ -145,16 +143,18 @@ public class ResultActivity extends AppCompatActivity {
 
     //显示进度条
     private void showProcessDialog() {
-        if (!progressDialog.isShowing()) {
-            progressDialog.show();
+        if (progressDialog.isShowing()) {
+            return;
         }
+        progressDialog.show();
     }
 
     //隐藏进度条
     private void hideProcessDialog() {
-        if (progressDialog.isShowing()) {
-            progressDialog.hide();
+        if (!progressDialog.isShowing()) {
+            return;
         }
+        progressDialog.hide();
     }
 
 
