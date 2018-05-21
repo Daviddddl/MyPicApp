@@ -227,8 +227,8 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
      */
     public void startCropActivity(Uri uri) {
         UCrop.of(uri, mDestinationUri)
-                .withAspectRatio(1, 1)
-                .withMaxResultSize(512, 512)
+                .withAspectRatio(2, 1)
+                .withMaxResultSize(1024, 512)
                 .withTargetActivity(CropActivity.class)
                 .start(mActivity, this);
     }
