@@ -74,11 +74,11 @@ public class ResultActivity extends AppCompatActivity {
 
                 // 上传选择的选项
                 String resId=null;
-                if (mRBres1.isSelected())
+                if (mRBres1.isChecked())
                     resId = Constant.res1;
-                if (mRBres2.isSelected())
+                if (mRBres2.isChecked())
                     resId = Constant.res2;
-                if (mRBres3.isSelected())
+                if (mRBres3.isChecked())
                     resId = Constant.res3;
 
                 String style = mSpinner.getSelectedItem().toString();
@@ -92,7 +92,7 @@ public class ResultActivity extends AppCompatActivity {
                 //2构造Request,
                 //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=repair&args1="+style+"&args2="+resId+"&args3="+input+"&args4=useless").build();
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=repair_step2&args1="+style+"&args2="+resId+"&args3="+input+"&args4=useless").build();
 
                 //3将Request封装成call
                 Call call = okHttpClient.newCall(request);
@@ -115,17 +115,21 @@ public class ResultActivity extends AppCompatActivity {
                                      runOnUiThread(new Runnable() {
                                          @Override
                                          public void run() {
-                                             //Toast.makeText(getApplicationContext(), resBody, Toast.LENGTH_SHORT).show();
+                                             Log.e("=============",resBody);
+                                             Toast.makeText(getApplicationContext(), resBody, Toast.LENGTH_SHORT).show();
+                                             //  此处进行step2 下载
+                                             downLoad(remotePath+fileName+"_repair.png",fileName+"_repair.png");
+                                             loadImage(fileName+"_repair.png");
                                          }
                                      });
                                  }
                              });
 
+                /**
+                 * 请求结束
+                 */
 
                 showProcessDialog();
-                downLoad(remotePath+fileName+"_repair.png",fileName+"_repair.png");
-                loadImage(fileName+"_repair.png");
-
 
                 handler.postDelayed(new Runnable() {
                     @Override

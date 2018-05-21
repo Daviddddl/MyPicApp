@@ -28,8 +28,11 @@ import com.kevin.imageuploadclient.util.Constant;
 import com.youth.banner.loader.ImageLoader;
 
 import java.io.File;
+import java.io.IOException;
 
 import butterknife.Bind;
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -66,7 +69,7 @@ public class IdentifyFragment extends PictureSelectFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mContext = activity;
-        progressDialog = new ProgressDialog(mContext);
+        //progressDialog = new ProgressDialog(mContext);
     }
 
     @Override
@@ -98,11 +101,12 @@ public class IdentifyFragment extends PictureSelectFragment {
                         String filePath = fileUri.getEncodedPath();
                         final String imagePath = Uri.decode(filePath);
 
+                        progressDialog = new ProgressDialog(mContext);
                         progressDialog.setMessage("上传中...");
                         progressDialog.setCancelable(false);
                         showProcessDialog();
 
-                        uploadImage(imagePath);
+                        uploadImage(imagePath,"Left");
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -131,11 +135,12 @@ public class IdentifyFragment extends PictureSelectFragment {
                         String filePath = fileUri.getEncodedPath();
                         final String imagePath = Uri.decode(filePath);
 
+                        progressDialog = new ProgressDialog(mContext);
                         progressDialog.setMessage("上传中...");
                         progressDialog.setCancelable(false);
                         showProcessDialog();
 
-                        uploadImage(imagePath);
+                        uploadImage(imagePath,"Right");
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -153,6 +158,7 @@ public class IdentifyFragment extends PictureSelectFragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                progressDialog = new ProgressDialog(mContext);
                 progressDialog.setMessage("识别中...");
                 progressDialog.setCancelable(false);
                 showProcessDialog();
@@ -162,7 +168,53 @@ public class IdentifyFragment extends PictureSelectFragment {
                         hideProcessDialog();
                     }
                 }, 3000);
-                mTvIDentifyRes.setText("相似度：" + "0.998245");
+
+                /**
+                 * 获取请求
+                 */
+                //1.okhttpClient对象
+                OkHttpClient okHttpClient = new OkHttpClient();
+                //2构造Request,
+                //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=xxxxxxx&args1="+""+"&args2="+""+"&args3="+""+"&args4=" + "").build();
+
+                //3将Request封装成call
+                final Call call = okHttpClient.newCall(request);
+
+                //4，执行call，这个方法是异步请求数据
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        //失败调用
+                        Log.e("ManufactureFragment", "onFailure: ");
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        //成功调用
+                        Log.e("ManufactureFragment", "onResponse: ");
+                        //获取网络访问返回的字符串
+                        assert response.body() != null;
+                        final String resBody = response.body().string();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (!resBody.startsWith("error")) {
+                                    mTvIDentifyRes.setText(resBody);
+                                }else {
+                                    Log.e("服务器无法返回结果！", "服务器无法返回结果！");
+                                }
+                            }
+                        }).start();
+                    }
+                });
+
+                /**
+                 * 请求结束
+                 */
+
+                //mTvIDentifyRes.setText("相似度：" + "0.998245");
             }
         });
 
@@ -185,8 +237,8 @@ public class IdentifyFragment extends PictureSelectFragment {
      * 上传图片
      * @param imagePath
      */
-    private void uploadImage(String imagePath) {
-        new IdentifyFragment.NetworkTask().execute(imagePath);
+    private void uploadImage(String imagePath, String index) {
+        new IdentifyFragment.NetworkTask().execute(imagePath, index);
     }
 
     /**
@@ -201,21 +253,22 @@ public class IdentifyFragment extends PictureSelectFragment {
 
         @Override
         protected String doInBackground(String... params) {
-            return doPost(params[0]);
+            return doPost(params[0], params[1]);
         }
 
         @Override
         protected void onPostExecute(String result) {
             if(!"error".equals(result)) {
                 Log.i(TAG, "图片地址 " + Constant.BASE_URL + result);
+
                 Glide.with(mContext)
                         .load(Constant.BASE_URL + result)
-                        .into(identify_input_pic1);
+                        .into(result.endsWith("Left")?identify_input_pic1:identify_input_pic2);
             }
         }
     }
 
-    private String doPost(String imagePath) {
+    private String doPost(String imagePath, String index) {
         OkHttpClient mOkHttpClient = new OkHttpClient();
 
         String result = "error";
@@ -223,7 +276,7 @@ public class IdentifyFragment extends PictureSelectFragment {
         // 这里演示添加用户ID
 //        builder.addFormDataPart("userId", "20160519142605");
         builder.addFormDataPart("image", imagePath,
-                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath)));
+                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","identify"+index+".png");
 
         RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();

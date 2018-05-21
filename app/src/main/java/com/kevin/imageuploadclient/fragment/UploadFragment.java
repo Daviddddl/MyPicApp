@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.kevin.imageuploadclient.R;
@@ -29,10 +30,13 @@ import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.xml.transform.Result;
 
 import butterknife.Bind;
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -68,7 +72,7 @@ public class UploadFragment extends PictureSelectFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mContext = activity;
-        progressDialog = new ProgressDialog(mContext);
+        //progressDialog = new ProgressDialog(mContext);
     }
 
     @Override
@@ -103,14 +107,62 @@ public class UploadFragment extends PictureSelectFragment {
             @Override
             public void onClick(View v) {
 
-                downLoad(remoteTxtPath,fileTxtName+".txt");
-                String[] res = loadTxt();
-                if (res != null) {
-                    Constant.res1 = res[0];
-                    Constant.res2 = res[1];
-                    Constant.res3 = res[2];
-                }
-                startActivity(new Intent(getContext(), ResultActivity.class));
+                //downLoad(remoteTxtPath,fileTxtName+".txt");
+
+                // 此处进行step1
+                final String[] httpRes = {""};
+                /**
+                 * 获取请求
+                 */
+                //1.okhttpClient对象
+                OkHttpClient okHttpClient = new OkHttpClient();
+                //2构造Request,
+                //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=repair_step1&args1="+""+"&args2="+""+"&args3="+""+"&args4=" + "").build();
+
+                //3将Request封装成call
+                final Call call = okHttpClient.newCall(request);
+
+                //4，执行call，这个方法是异步请求数据
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        //失败调用
+                        Log.e("UploadFragment", "onFailure: ");
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        //成功调用
+                        Log.e("UploadFragment", "onResponse: ");
+                        //获取网络访问返回的字符串
+                        assert response.body() != null;
+                        final String resBody = response.body().string();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                httpRes[0] = resBody;
+
+                                if (!httpRes[0].startsWith("error")) {
+                                    String[] res = httpRes[0].split(";");
+                                    if (res.length == 3) {
+                                        Constant.res1 = res[0];
+                                        Constant.res2 = res[1];
+                                        Constant.res3 = res[2];
+                                        startActivity(new Intent(getContext(), ResultActivity.class));
+                                    }
+                                }else {
+                                    Log.e("服务器无法返回结果！", "服务器无法返回结果！");
+                                }
+                            }
+                        }).start();
+                    }
+                });
+
+                /**
+                 * 请求结束
+                 */
             }
         });
 
@@ -123,6 +175,7 @@ public class UploadFragment extends PictureSelectFragment {
                 String filePath = fileUri.getEncodedPath();
                 final String imagePath = Uri.decode(filePath);
 
+                progressDialog = new ProgressDialog(mContext);
                 progressDialog.setMessage("上传中...");
                 progressDialog.setCancelable(false);
                 showProcessDialog();
@@ -247,15 +300,17 @@ public class UploadFragment extends PictureSelectFragment {
 
     //显示进度条
     private void showProcessDialog() {
-        if (!progressDialog.isShowing()) {
-            progressDialog.show();
+        if (progressDialog.isShowing()) {
+            return;
         }
+        progressDialog.show();
     }
 
     //隐藏进度条
     private void hideProcessDialog() {
-        if (progressDialog.isShowing()) {
-            progressDialog.hide();
+        if (!progressDialog.isShowing()) {
+            return;
         }
+        progressDialog.hide();
     }
 }

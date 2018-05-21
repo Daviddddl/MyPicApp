@@ -28,8 +28,11 @@ import com.kevin.imageuploadclient.util.Constant;
 import com.youth.banner.loader.ImageLoader;
 
 import java.io.File;
+import java.io.IOException;
 
 import butterknife.Bind;
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -66,7 +69,7 @@ public class ManufactureFragment extends PictureSelectFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mContext = activity;
-        progressDialog = new ProgressDialog(mContext);
+        //progressDialog = new ProgressDialog(mContext);
     }
 
     @Override
@@ -94,6 +97,7 @@ public class ManufactureFragment extends PictureSelectFragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                progressDialog = new ProgressDialog(mContext);
                 progressDialog.setMessage("识别中...");
                 progressDialog.setCancelable(false);
                 showProcessDialog();
@@ -103,7 +107,57 @@ public class ManufactureFragment extends PictureSelectFragment {
                         hideProcessDialog();
                     }
                 }, 3000);
-                mTvManuRes.setText("人 --- 入 --- 亻--- 八 --- 上");
+
+                //开始单字识别
+
+                /**
+                 * 获取请求
+                 */
+                //1.okhttpClient对象
+                OkHttpClient okHttpClient = new OkHttpClient();
+                //2构造Request,
+                //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=xxxxxxx&args1="+""+"&args2="+""+"&args3="+""+"&args4=" + "").build();
+
+                //3将Request封装成call
+                final Call call = okHttpClient.newCall(request);
+
+                //4，执行call，这个方法是异步请求数据
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        //失败调用
+                        Log.e("ManufactureFragment", "onFailure: ");
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        //成功调用
+                        Log.e("ManufactureFragment", "onResponse: ");
+                        //获取网络访问返回的字符串
+                        assert response.body() != null;
+                        final String resBody = response.body().string();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (!resBody.startsWith("error")) {
+                                    mTvManuRes.setText(resBody);
+                                }else {
+                                    Log.e("服务器无法返回结果！", "服务器无法返回结果！");
+                                }
+                            }
+                        }).start();
+                    }
+                });
+
+                /**
+                 * 请求结束
+                 */
+
+
+
+                //mTvManuRes.setText("人 --- 入 --- 亻--- 八 --- 上");
             }
         });
 
@@ -111,6 +165,7 @@ public class ManufactureFragment extends PictureSelectFragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                progressDialog = new ProgressDialog(mContext);
                 progressDialog.setMessage("识别中...");
                 progressDialog.setCancelable(false);
                 showProcessDialog();
@@ -120,7 +175,57 @@ public class ManufactureFragment extends PictureSelectFragment {
                         hideProcessDialog();
                     }
                 }, 3000);
-                mTvManuRes.setText("我 --- 的 --- 中 --- 国 --- 梦");
+
+                // 开始文本识别
+                /**
+                 * 获取请求
+                 */
+                //1.okhttpClient对象
+                OkHttpClient okHttpClient = new OkHttpClient();
+                //2构造Request,
+                //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=xxxxxxx&args1="+""+"&args2="+""+"&args3="+""+"&args4=" + "").build();
+
+                //3将Request封装成call
+                final Call call = okHttpClient.newCall(request);
+
+                //4，执行call，这个方法是异步请求数据
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        //失败调用
+                        Log.e("ManufactureFragment", "onFailure: ");
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        //成功调用
+                        Log.e("ManufactureFragment", "onResponse: ");
+                        //获取网络访问返回的字符串
+                        assert response.body() != null;
+                        final String resBody = response.body().string();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (!resBody.startsWith("error")) {
+                                    mTvManuRes.setText(resBody);
+                                }else {
+                                    Log.e("服务器无法返回结果！", "服务器无法返回结果！");
+                                }
+                            }
+                        }).start();
+                    }
+                });
+
+                /**
+                 * 请求结束
+                 */
+
+
+
+
+                //mTvManuRes.setText("我 --- 的 --- 中 --- 国 --- 梦");
             }
         });
 
@@ -133,6 +238,7 @@ public class ManufactureFragment extends PictureSelectFragment {
                 String filePath = fileUri.getEncodedPath();
                 final String imagePath = Uri.decode(filePath);
 
+                progressDialog = new ProgressDialog(mContext);
                 progressDialog.setMessage("上传中...");
                 progressDialog.setCancelable(false);
                 showProcessDialog();
@@ -170,7 +276,8 @@ public class ManufactureFragment extends PictureSelectFragment {
      * @param imagePath
      */
     private void uploadImage(String imagePath) {
-        new ManufactureFragment.NetworkTask().execute(imagePath);    }
+        new ManufactureFragment.NetworkTask().execute(imagePath);
+    }
 
     /**
      * 访问网络AsyncTask,访问网络在子线程进行并返回主线程通知访问的结果
@@ -203,10 +310,8 @@ public class ManufactureFragment extends PictureSelectFragment {
 
         String result = "error";
         MultipartBody.Builder builder = new MultipartBody.Builder();
-        // 这里演示添加用户ID
-//        builder.addFormDataPart("userId", "20160519142605");
         builder.addFormDataPart("image", imagePath,
-                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath)));
+                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","manufacture.png");
 
         RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();
@@ -233,15 +338,15 @@ public class ManufactureFragment extends PictureSelectFragment {
 
     //显示进度条
     private void showProcessDialog() {
-        if (!progressDialog.isShowing()) {
-            progressDialog.show();
-        }
+        if (progressDialog.isShowing())
+            return;
+        progressDialog.show();
     }
 
     //隐藏进度条
     private void hideProcessDialog() {
-        if (progressDialog.isShowing()) {
-            progressDialog.hide();
-        }
+        if (!progressDialog.isShowing())
+            return;
+        progressDialog.hide();
     }
 }
