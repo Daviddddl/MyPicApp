@@ -220,7 +220,7 @@ public class UploadFragment extends PictureSelectFragment {
         // 这里演示添加用户ID
 //        builder.addFormDataPart("userId", "20160519142605");
         builder.addFormDataPart("image", imagePath,
-                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath)));
+                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","fix_origin.png");
 
         RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();
