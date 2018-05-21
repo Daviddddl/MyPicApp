@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -64,6 +65,9 @@ public class MainFragment extends PictureSelectFragment implements OnBannerListe
     @Bind(R.id.banner)
     Banner mBanner;
 
+    @Bind(R.id.mBtn_setting)
+    ImageView mBtnSetting;
+
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -109,6 +113,14 @@ public class MainFragment extends PictureSelectFragment implements OnBannerListe
                 function4();
             }
         });
+
+
+        mBtnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                functionSetting();
+            }
+        });
         // 设置裁剪图片结果监听
         setOnPictureSelectedListener(new OnPictureSelectedListener() {
             @Override
@@ -122,6 +134,8 @@ public class MainFragment extends PictureSelectFragment implements OnBannerListe
 
             }
         });
+
+
 
         buttomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

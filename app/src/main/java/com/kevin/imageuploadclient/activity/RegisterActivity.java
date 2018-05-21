@@ -43,11 +43,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        nameInput = (EditText) findViewById(R.id.nameInput);//姓名输入框
-        emailInput = (EditText) findViewById(R.id.emailInput);//邮箱输入框
-        passwordInput = (EditText) findViewById(R.id.passwordInput);//密码输入框
-        registerButton = (Button) findViewById(R.id.registerButton);//注册按钮
-        linkToLoginButton = (Button) findViewById(R.id.linkToLoginScreenButton);//跳转到登陆页面按钮
+        nameInput = findViewById(R.id.nameInput);//姓名输入框
+        emailInput = findViewById(R.id.emailInput);//邮箱输入框
+        passwordInput = findViewById(R.id.passwordInput);//密码输入框
+        registerButton = findViewById(R.id.registerButton);//注册按钮
+        linkToLoginButton = findViewById(R.id.linkToLoginScreenButton);//跳转到登陆页面按钮
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
         sessionManager = new SessionManager(getApplicationContext());
@@ -174,7 +174,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         };
         //添加request到queue
-        //AppController appController = AppController.getInstance();
         KevinApplication kevinApplication = (KevinApplication) getApplicationContext();
         if (kevinApplication != null)
             kevinApplication.addToRequestQueue(stringRequest, tag_string_req);
@@ -184,32 +183,24 @@ public class RegisterActivity extends AppCompatActivity {
 
     //显示进度条
     private void showDialog() {
-        if (!progressDialog.isShowing()) {
-            progressDialog.show();
-        }
+        if (progressDialog.isShowing())
+            return;
+        progressDialog.show();
     }
 
     //隐藏进度条
     private void hideDialog() {
-        if (progressDialog.isShowing()) {
-            progressDialog.hide();
-        }
+        if (!progressDialog.isShowing())
+            return;
+        progressDialog.hide();
     }
 
     //判断邮箱是否包含@
     private boolean isEmailValid(String email) {
-        if(!email.contains("@")) {
-            return false;
-        }else {
-            return true;
-        }
+        return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
-        if (password.length() < 6) {
-            return false;
-        }else {
-            return true;
-        }
+        return password.length() >= 6;
     }
 }

@@ -17,6 +17,16 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="60dp" />
 
+    <ImageView
+        android:id="@+id/mBtn_setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:src="@mipmap/setting_false" />
+
 
     <com.kevin.imageuploadclient.util.RoundAngleImageView
         android:id="@+id/main_frag_func1"

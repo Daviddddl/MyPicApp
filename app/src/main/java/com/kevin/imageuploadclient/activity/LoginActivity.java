@@ -164,32 +164,26 @@ public class LoginActivity extends AppCompatActivity {
 
     //显示进度条
     private void showDialog() {
-        if (!progressDialog.isShowing()) {
-            progressDialog.show();
+        if (progressDialog.isShowing()) {
+            return;
         }
+        progressDialog.show();
     }
 
     //隐藏进度条
     private void hideDialog() {
-        if (progressDialog.isShowing()) {
-            progressDialog.hide();
+        if (!progressDialog.isShowing()) {
+            return;
         }
+        progressDialog.hide();
     }
 
     private boolean isEmailValid(String email) {
-        if(!email.contains("@")) {
-            return false;
-        }else {
-            return true;
-        }
+        return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
-        if (password.length() < 6) {
-            return false;
-        }else {
-            return true;
-        }
+        return password.length() >= 6;
     }
 
 }
