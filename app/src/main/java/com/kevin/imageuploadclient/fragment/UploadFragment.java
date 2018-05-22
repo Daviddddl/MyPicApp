@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.kevin.imageuploadclient.R;
 import com.kevin.imageuploadclient.activity.ButtomNaviActivity;
 import com.kevin.imageuploadclient.activity.HelpActivity;
+import com.kevin.imageuploadclient.activity.MainActivity;
 import com.kevin.imageuploadclient.activity.ResultActivity;
 import com.kevin.imageuploadclient.activity.UploadTestActivity;
 import com.kevin.imageuploadclient.fragment.basic.PictureSelectFragment;
@@ -68,6 +69,9 @@ public class UploadFragment extends PictureSelectFragment {
     @Bind(R.id.getResBtn)
     Button mBtnGetRes;
 
+    @Bind(R.id.action_back)
+    ImageView mIvBack;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -88,6 +92,12 @@ public class UploadFragment extends PictureSelectFragment {
     @Override
     public void initEvents() {
 
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MainActivity.class));
+            }
+        });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

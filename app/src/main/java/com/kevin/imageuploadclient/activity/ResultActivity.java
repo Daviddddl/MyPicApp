@@ -1,6 +1,7 @@
 package com.kevin.imageuploadclient.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
@@ -26,6 +27,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import javax.xml.transform.Result;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -43,6 +46,7 @@ public class ResultActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Spinner mSpinner;
     private EditText mEditText;
+    private ImageView mIvBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,7 @@ public class ResultActivity extends AppCompatActivity {
 
         mSpinner = findViewById(R.id.style_spinner);
         mEditText = findViewById(R.id.myNewRes);
+        mIvBack.findViewById(R.id.action_back);
 
         mRBres1.setText(Constant.res1);
         mRBres2.setText(Constant.res2);
@@ -65,6 +70,14 @@ public class ResultActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
+
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResultActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mBtnGetResPic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +129,10 @@ public class ResultActivity extends AppCompatActivity {
                                          @Override
                                          public void run() {
                                              //  此处进行step2 下载
-                                             downLoad(remotePath+fileName+"_repair.png",fileName+"_repair.png");
-                                             loadImage(fileName+"_repair.png");
+                                             if (resBody.startsWith("success")) {
+                                                 downLoad(remotePath + fileName + "_repair.png", fileName + "_repair.png");
+                                                 loadImage(fileName + "_repair.png");
+                                             }
                                          }
                                      });
                                  }

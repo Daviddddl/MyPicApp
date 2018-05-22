@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class UserDetailActivity extends AppCompatActivity {
     private SQLiteManager sqLiteManager;
     private SessionManager sessionManager;
     BottomNavigationView buttomNavigationView;
+    private ImageView mIvBack;
 
 
     @Override
@@ -59,6 +61,15 @@ public class UserDetailActivity extends AppCompatActivity {
         });
         
         buttomNavigationView = findViewById(R.id.bottom_navigation);
+
+        mIvBack.findViewById(R.id.action_back);
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDetailActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
                 = new BottomNavigationView.OnNavigationItemSelectedListener() {

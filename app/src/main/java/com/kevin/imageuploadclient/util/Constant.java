@@ -3,7 +3,9 @@ package com.kevin.imageuploadclient.util;
 public class Constant {
 
     /** 服务器基地址 */
-    public static final String BASE_URL = "http://192.168.20.247:8080/ImageUploadServer_war";
+    //public static final String BASE_URL = "http://172.20.66.252:8080/ImageUploadServer_war_exploded";
+    public static final String BASE_URL = "http://172.20.66.252:8080";
+    public static final int GETMSG = 123;
 
     public static boolean IS_ROOT = false;
 

@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.kevin.imageuploadclient.R;
+import com.kevin.imageuploadclient.activity.MainActivity;
 import com.kevin.imageuploadclient.activity.ResultActivity;
 import com.kevin.imageuploadclient.fragment.basic.PictureSelectFragment;
 import com.kevin.imageuploadclient.util.Constant;
@@ -31,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 
 import butterknife.Bind;
+import kr.co.namee.permissiongen.internal.Utils;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -50,6 +53,17 @@ public class IdentifyFragment extends PictureSelectFragment {
 
     private Handler handler = new Handler();
 
+    private Handler msgHandler = new Handler(){
+        public void handleMessage(Message msg)
+        {
+            if (msg.what == Constant.GETMSG)
+            {
+                String data = (String) msg.obj;
+                mTvIDentifyRes.setText(data);
+            }
+        }
+    };
+
     @Bind(R.id.identify_input_pic1)
     ImageView identify_input_pic1;
 
@@ -64,6 +78,9 @@ public class IdentifyFragment extends PictureSelectFragment {
 
     @Bind(R.id.identifyRes)
     TextView mTvIDentifyRes;
+
+    @Bind(R.id.action_back)
+    ImageView mIvBack;
 
     @Override
     public void onAttach(Activity activity) {
@@ -85,6 +102,12 @@ public class IdentifyFragment extends PictureSelectFragment {
     @Override
     public void initEvents() {
 
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MainActivity.class));
+            }
+        });
 
         identify_input_pic1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,7 +200,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                 //2构造Request,
                 //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=xxxxxxx&args1="+""+"&args2="+""+"&args3="+""+"&args4=" + "").build();
+                final Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=identify&args1="+""+"&args2="+""+"&args3="+""+"&args4=" + "").build();
 
                 //3将Request封装成call
                 final Call call = okHttpClient.newCall(request);
@@ -187,13 +210,13 @@ public class IdentifyFragment extends PictureSelectFragment {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         //失败调用
-                        Log.e("ManufactureFragment", "onFailure: ");
+                        Log.e("IdentifyFragment", "onFailure: ");
                     }
 
                     @Override
                     public void onResponse(Call call, final Response response) throws IOException {
                         //成功调用
-                        Log.e("ManufactureFragment", "onResponse: ");
+                        Log.e("IdentifyFragment", "onResponse: ");
                         //获取网络访问返回的字符串
                         assert response.body() != null;
                         final String resBody = response.body().string();
@@ -201,8 +224,15 @@ public class IdentifyFragment extends PictureSelectFragment {
                             @Override
                             public void run() {
                                 if (!resBody.startsWith("error")) {
-                                    mTvIDentifyRes.setText(resBody);
+                                    Message msg = handler.obtainMessage();
+                                    msg.what = Constant.GETMSG;
+                                    msg.obj = resBody;
+                                    msgHandler.sendMessage(msg);
                                 }else {
+                                    Message msg = handler.obtainMessage();
+                                    msg.what = Constant.GETMSG;
+                                    msg.obj = "识别不出结果了！";
+                                    msgHandler.sendMessage(msg);
                                     Log.e("服务器无法返回结果！", "服务器无法返回结果！");
                                 }
                             }
