@@ -73,14 +73,6 @@ public class ResultActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
 
-        /*mIvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResultActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
         mBtnGetResPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,7 +147,7 @@ public class ResultActivity extends AppCompatActivity {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 5000);
+                }, 12000);
 
             }
         });

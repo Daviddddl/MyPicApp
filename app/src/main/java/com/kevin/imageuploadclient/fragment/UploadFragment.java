@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.Toolbar;
@@ -72,6 +73,17 @@ public class UploadFragment extends PictureSelectFragment {
     @Bind(R.id.action_back)
     ImageView mIvBack;
 
+    private Handler msgHandler = new Handler(){
+        public void handleMessage(Message msg)
+        {
+            if (msg.what == Constant.GETMSG)
+            {
+                String data = (String) msg.obj;
+                Toast.makeText(mContext,"抱歉，服务器出错！",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -129,7 +141,7 @@ public class UploadFragment extends PictureSelectFragment {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 8000);
+                }, 12000);
 
                 // 此处进行step1
                 final String[] httpRes = {""};
@@ -151,6 +163,10 @@ public class UploadFragment extends PictureSelectFragment {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         //失败调用
+                        Message msg = handler.obtainMessage();
+                        msg.what = Constant.GETMSG;
+                        msg.obj = "抱歉！服务器出错！";
+                        msgHandler.sendMessage(msg);
                         Log.e("UploadFragment", "onFailure: ");
                     }
 
@@ -210,7 +226,7 @@ public class UploadFragment extends PictureSelectFragment {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 15000);
 
             }
         });

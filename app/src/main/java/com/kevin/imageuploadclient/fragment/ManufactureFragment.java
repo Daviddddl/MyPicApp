@@ -85,7 +85,6 @@ public class ManufactureFragment extends PictureSelectFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mContext = activity;
-        //progressDialog = new ProgressDialog(mContext);
     }
 
     @Override
@@ -150,6 +149,10 @@ public class ManufactureFragment extends PictureSelectFragment {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         //失败调用
+                        Message msg = handler.obtainMessage();
+                        msg.what = Constant.GETMSG;
+                        msg.obj = "抱歉！服务器出错！";
+                        msgHandler.sendMessage(msg);
                         Log.e("ManufactureFragment", "onFailure: ");
                     }
 
@@ -179,11 +182,7 @@ public class ManufactureFragment extends PictureSelectFragment {
                 /**
                  * 请求结束
                  */
-
-
-
-                //mTvManuRes.setText("人 --- 入 --- 亻--- 八 --- 上");
-            }
+                }
         });
 
         mBtnTextGet.setOnClickListener(new View.OnClickListener() {
@@ -199,7 +198,7 @@ public class ManufactureFragment extends PictureSelectFragment {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 12000);
 
                 // 开始文本识别
                 /**
@@ -220,6 +219,10 @@ public class ManufactureFragment extends PictureSelectFragment {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         //失败调用
+                        Message msg = handler.obtainMessage();
+                        msg.what = Constant.GETMSG;
+                        msg.obj = "抱歉！服务器出错！";
+                        msgHandler.sendMessage(msg);
                         Log.e("ManufactureFragment", "onFailure: ");
                     }
 
@@ -253,12 +256,7 @@ public class ManufactureFragment extends PictureSelectFragment {
                 /**
                  * 请求结束
                  */
-
-
-
-
-                //mTvManuRes.setText("我 --- 的 --- 中 --- 国 --- 梦");
-            }
+                }
         });
 
         // 设置裁剪图片结果监听
@@ -282,7 +280,7 @@ public class ManufactureFragment extends PictureSelectFragment {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 12000);
 
             }
         });

@@ -136,7 +136,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                             public void run() {
                                 hideProcessDialog();
                             }
-                        }, 3000);
+                        }, 12000);
 
                     }
                 });
@@ -170,7 +170,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                             public void run() {
                                 hideProcessDialog();
                             }
-                        }, 3000);
+                        }, 12000);
 
                     }
                 });
@@ -190,7 +190,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 8000);
+                }, 12000);
 
                 /**
                  * 获取请求
@@ -210,6 +210,10 @@ public class IdentifyFragment extends PictureSelectFragment {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         //失败调用
+                        Message msg = handler.obtainMessage();
+                        msg.what = Constant.GETMSG;
+                        msg.obj = "抱歉！服务器出错！";
+                        msgHandler.sendMessage(msg);
                         Log.e("IdentifyFragment", "onFailure: ");
                     }
 
@@ -243,9 +247,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                 /**
                  * 请求结束
                  */
-
-                //mTvIDentifyRes.setText("相似度：" + "0.998245");
-            }
+                }
         });
 
     }
