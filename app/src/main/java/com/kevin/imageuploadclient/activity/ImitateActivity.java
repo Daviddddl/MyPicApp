@@ -44,7 +44,7 @@ public class ImitateActivity extends AppCompatActivity {
     private ImageView ivImitateResult;
     private Spinner mStyle_spinner;
     private ProgressDialog progressDialog;//进度条
-    private ImageView mIvBack;
+    //private ImageView mIvBack;
 
     private Handler handler = new Handler();
 
@@ -58,7 +58,7 @@ public class ImitateActivity extends AppCompatActivity {
         mBtnImitate = findViewById(R.id.imitate_button);
         ivImitateResult = findViewById(R.id.imitate_result);
         mStyle_spinner = findViewById(R.id.style_spinner);
-        mIvBack.findViewById(R.id.action_back);
+        /*mIvBack.findViewById(R.id.action_back);
 
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class ImitateActivity extends AppCompatActivity {
                 Intent intent = new Intent(ImitateActivity.this, MainActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         mBtnImitate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +134,7 @@ public class ImitateActivity extends AppCompatActivity {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 8000);
             }
         });
 

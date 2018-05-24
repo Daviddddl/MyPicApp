@@ -18,7 +18,7 @@ public class HelpActivity extends AppCompatActivity {
 
     private SlideMenuAction slideMenuAction;
     BottomNavigationView buttomNavigationView;
-    private ImageView mIvBack;
+    //private ImageView mIvBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +31,14 @@ public class HelpActivity extends AppCompatActivity {
 
         buttomNavigationView = findViewById(R.id.bottom_navigation);
 
-        mIvBack.findViewById(R.id.action_back);
+        /*mIvBack.findViewById(R.id.action_back);
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HelpActivity.this, MainActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
                 = new BottomNavigationView.OnNavigationItemSelectedListener() {

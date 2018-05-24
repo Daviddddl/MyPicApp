@@ -190,7 +190,7 @@ public class IdentifyFragment extends PictureSelectFragment {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 8000);
 
                 /**
                  * 获取请求
@@ -306,7 +306,7 @@ public class IdentifyFragment extends PictureSelectFragment {
         // 这里演示添加用户ID
 //        builder.addFormDataPart("userId", "20160519142605");
         builder.addFormDataPart("image", imagePath,
-                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","identify"+index+".png");
+                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","identify"+index+".jpg");
 
         RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();

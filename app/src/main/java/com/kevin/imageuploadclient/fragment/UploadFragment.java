@@ -119,6 +119,18 @@ public class UploadFragment extends PictureSelectFragment {
 
                 //downLoad(remoteTxtPath,fileTxtName+".txt");
 
+                progressDialog = new ProgressDialog(mContext);
+                progressDialog.setMessage("获取结果中...");
+                progressDialog.setCancelable(false);
+                showProcessDialog();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        hideProcessDialog();
+                    }
+                }, 8000);
+
                 // 此处进行step1
                 final String[] httpRes = {""};
                 /**
@@ -173,6 +185,7 @@ public class UploadFragment extends PictureSelectFragment {
                 /**
                  * 请求结束
                  */
+
             }
         });
 
@@ -283,7 +296,7 @@ public class UploadFragment extends PictureSelectFragment {
         // 这里演示添加用户ID
 //        builder.addFormDataPart("userId", "20160519142605");
         builder.addFormDataPart("image", imagePath,
-                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","fix_origin.png");
+                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","fix_origin.jpg");
 
         RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();

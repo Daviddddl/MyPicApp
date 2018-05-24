@@ -343,7 +343,7 @@ public class ManufactureFragment extends PictureSelectFragment {
         String result = "error";
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("image", imagePath,
-                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","manufacture.png");
+                RequestBody.create(MediaType.parse("image/jpeg"), new File(imagePath))).addFormDataPart("wantedFilename","manufacture.jpg");
 
         RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();

@@ -46,7 +46,7 @@ public class ResultActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Spinner mSpinner;
     private EditText mEditText;
-    private ImageView mIvBack;
+    //private ImageView mIvBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,25 +59,27 @@ public class ResultActivity extends AppCompatActivity {
         final RadioButton mRBres1 = findViewById(R.id.resTxt1);
         final RadioButton mRBres2 = findViewById(R.id.resTxt2);
         final RadioButton mRBres3 = findViewById(R.id.resTxt3);
+        final RadioButton mRBres4 = findViewById(R.id.resTxt4);
 
         mSpinner = findViewById(R.id.style_spinner);
         mEditText = findViewById(R.id.myNewRes);
-        mIvBack.findViewById(R.id.action_back);
+        //mIvBack.findViewById(R.id.action_back);
 
         mRBres1.setText(Constant.res1);
         mRBres2.setText(Constant.res2);
         mRBres3.setText(Constant.res3);
 
+
         progressDialog = new ProgressDialog(this);//进度条
         progressDialog.setCancelable(false);
 
-        mIvBack.setOnClickListener(new View.OnClickListener() {
+        /*mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ResultActivity.this, MainActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         mBtnGetResPic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,9 +95,12 @@ public class ResultActivity extends AppCompatActivity {
                     resId = Constant.res2;
                 if (mRBres3.isChecked())
                     resId = Constant.res3;
+                if (mRBres4.isChecked())
+                    resId = "4";
 
                 String style = mSpinner.getSelectedItem().toString();
                 String input = mEditText.getText().toString();
+                resId = resId.equals("4") ? input : resId;
 
                 /**
                  * 获取请求
@@ -105,7 +110,8 @@ public class ResultActivity extends AppCompatActivity {
                 //2构造Request,
                 //builder.get()代表的是get请求，url方法里面放的参数是一个网络地址
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=repair_step2&args1="+style+"&args2="+resId+"&args3="+input+"&args4=useless").build();
+                Integer styleId = style.equals("行书") ? 2 : 1;
+                Request request = builder.get().url(Constant.BASE_URL+"/FunctionServlet?function=repair_step2&args1="+styleId+"&args2="+resId+"&args3="+input+"&args4=useless").build();
 
                 //3将Request封装成call
                 Call call = okHttpClient.newCall(request);
@@ -149,7 +155,7 @@ public class ResultActivity extends AppCompatActivity {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 3000);
+                }, 5000);
 
             }
         });
