@@ -58,15 +58,6 @@ public class ImitateActivity extends AppCompatActivity {
         mBtnImitate = findViewById(R.id.imitate_button);
         ivImitateResult = findViewById(R.id.imitate_result);
         mStyle_spinner = findViewById(R.id.style_spinner);
-        /*mIvBack.findViewById(R.id.action_back);
-
-        mIvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ImitateActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
         mBtnImitate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +68,6 @@ public class ImitateActivity extends AppCompatActivity {
 
                 String imitateInput = tvImitateInput.getText().toString();   //获取输入内容
                 String style = mStyle_spinner.getSelectedItem().toString();
-
-                //Toast.makeText(getApplicationContext(), "开始获取风格模仿结果……", Toast.LENGTH_SHORT).show();
-                // 开始获取风格模仿的结果
 
                 /**
                  * 获取请求
@@ -134,7 +122,7 @@ public class ImitateActivity extends AppCompatActivity {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 8000);
+                }, 15000);
             }
         });
 

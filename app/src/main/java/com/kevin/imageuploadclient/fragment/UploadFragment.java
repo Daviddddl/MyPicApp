@@ -187,6 +187,10 @@ public class UploadFragment extends PictureSelectFragment {
                                         startActivity(new Intent(getContext(), ResultActivity.class));
                                     }
                                 }else {
+                                    Message msg = handler.obtainMessage();
+                                    msg.what = Constant.GETMSG;
+                                    msg.obj = "抱歉！服务器出错！";
+                                    msgHandler.sendMessage(msg);
                                     Log.e("服务器无法返回结果！", "服务器无法返回结果！");
                                 }
                             }

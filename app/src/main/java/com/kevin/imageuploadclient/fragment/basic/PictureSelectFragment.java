@@ -140,6 +140,8 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
         }
     }
 
+
+
     /**
      * Callback received when a permissions request has been completed.
      */

@@ -147,7 +147,7 @@ public class ResultActivity extends AppCompatActivity {
                     public void run() {
                         hideProcessDialog();
                     }
-                }, 12000);
+                }, 15000);
 
             }
         });
