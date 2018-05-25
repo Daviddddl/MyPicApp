@@ -43,6 +43,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.kevin.imageuploadclient.util.Constant.fileTxtName;
 
@@ -161,9 +162,7 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
     }
 
     private void takePhoto() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN // Permission was added in API Level 16
-                && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     getString(R.string.permission_write_storage_rationale),
                     REQUEST_STORAGE_WRITE_ACCESS_PERMISSION);
@@ -176,16 +175,14 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
 
             ContentValues contentValues = new ContentValues(1);
             contentValues.put(MediaStore.Images.Media.DATA, new File(mTempPhotoPath).getAbsolutePath());
-            Uri uri = this.getContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,contentValues);
+            Uri uri = Objects.requireNonNull(this.getContext()).getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,contentValues);
             takeIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
             startActivityForResult(takeIntent, CAMERA_REQUEST_CODE);
         }
     }
 
     private void pickFromGallery() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN // Permission was added in API Level 16
-                && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
                     getString(R.string.permission_read_storage_rationale),
                     REQUEST_STORAGE_READ_ACCESS_PERMISSION);
@@ -200,7 +197,7 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == mActivity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case CAMERA_REQUEST_CODE:   // 调用相机拍照
                     File temp = new File(mTempPhotoPath);
@@ -227,8 +224,8 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
      */
     public void startCropActivity(Uri uri) {
         UCrop.of(uri, mDestinationUri)
-                .withAspectRatio(2, 1)
-                .withMaxResultSize(1024, 512)
+                .withAspectRatio(5, 2)
+                .withMaxResultSize(2560, 1024)
                 .withTargetActivity(CropActivity.class)
                 .start(mActivity, this);
     }
@@ -245,8 +242,6 @@ public abstract class PictureSelectFragment extends BaseFragment implements Sele
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(mActivity.getContentResolver(), resultUri);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }

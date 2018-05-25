@@ -163,4 +163,5 @@
     <string name="string_style">选择风格：</string>
     <string name="identify_result_text">笔迹鉴定结果：</string>
     <string name="possible_res4">自定义</string>
+    <string name="permission_take_photo">需要获取拍照权限</string>
 </resources>

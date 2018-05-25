@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
        //         System.out.println(volleyError.getMessage());
-                Toast.makeText(getApplicationContext(), "登陆失败", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "抱歉服务器出错！登陆失败！", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {
