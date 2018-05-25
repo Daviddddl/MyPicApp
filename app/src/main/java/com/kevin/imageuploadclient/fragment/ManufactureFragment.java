@@ -56,10 +56,7 @@ public class ManufactureFragment extends PictureSelectFragment {
         public void handleMessage(Message msg)
         {
             if (msg.what == Constant.GETMSG)
-            {
-                String data = (String) msg.obj;
-                mTvManuRes.setText(data);
-            }
+                mTvManuRes.setText((String) msg.obj);
         }
     };
 

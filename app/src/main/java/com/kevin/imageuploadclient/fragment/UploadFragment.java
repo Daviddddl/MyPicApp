@@ -76,11 +76,7 @@ public class UploadFragment extends PictureSelectFragment {
     private Handler msgHandler = new Handler(){
         public void handleMessage(Message msg)
         {
-            if (msg.what == Constant.GETMSG)
-            {
-                String data = (String) msg.obj;
-                Toast.makeText(mContext,"抱歉，服务器出错！",Toast.LENGTH_SHORT).show();
-            }
+            if (msg.what == Constant.GETMSG) Toast.makeText(mContext,"抱歉，服务器出错！",Toast.LENGTH_SHORT).show();
         }
     };
 

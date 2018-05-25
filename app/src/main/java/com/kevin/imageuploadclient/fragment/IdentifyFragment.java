@@ -57,10 +57,7 @@ public class IdentifyFragment extends PictureSelectFragment {
         public void handleMessage(Message msg)
         {
             if (msg.what == Constant.GETMSG)
-            {
-                String data = (String) msg.obj;
-                mTvIDentifyRes.setText(data);
-            }
+                mTvIDentifyRes.setText((String) msg.obj);
         }
     };
 
